@@ -1,0 +1,722 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Patents</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="27f5d2fa-8cef-806f-98cf-f2af67f45cc8" class="page sans"><header><h1 class="page-title" dir="auto">Patents</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="27f5d2fa-8cef-8046-8e68-efef63b7ca35" class="">Digital Humans and Generative AI</h2></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-808a-8897-f19086e0ec9e" class="">My patented research in digital / autonomous humans and generative AI pioneers the creation of hyper-realistic, multimodal avatars capable of perception, reasoning, and lifelike interaction. These systems combine speech, vision, gesture, expression, and cognition through advanced cross-modal learning and generative models, enabling digital humans to act as assistants, companions, educators, anchors, and immersive agents in real-world applications. Together, these patents establish a foundation for next-generation human–AI interaction, bridging deep generative intelligence with human-centric simulation for the metaverse, media, education, and enterprise engagement.</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80ee-a9e6-ef500269691f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80f9-9be9-d412b64bd1ce" class=""><strong>Generating digital avatar (2023)<br/></strong>US Patent 11,544,886</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8070-8e47-eeefe39ca26c" class="">This patent introduces a system and method for generating lifelike digital avatars capable of synthesizing human appearance, speech, expressions, and behaviors in real time from non-video inputs (such as text, audio, or expression signals). It leverages a K-nearest neighbor graph and cross-modal learning to map semantic contexts (e.g., emotions, gestures) into dynamic avatar actions, producing hyper-realistic video outputs. The invention enables controllable, semi-autonomous, or fully autonomous digital humans for applications in media, customer engagement, education, and immersive experiences</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80c7-a392-e6f11032cb53" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-802a-9df1-e3ed91ed1414" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8005-af3a-fb3d2bfcc9df" class="image"><a href="Patents/image.png"><img style="width:288px" src="Patents/image.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80cf-b491-dc16502c6b45" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8061-b123-e8f92c229a7e" class="image"><a href="Patents/image%201.png"><img style="width:288px" src="Patents/image%201.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8088-8650-fd7554edaa32" class=""><strong>Communicative light assembly system for digital humans (2025)<br/></strong>US Patent 12,217,341</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8068-9194-d96c01caf2fb" class="">This patent discloses a generative AI platform for autonomous digital humans, capable of producing hyper-realistic appearance, voice, emotion, and behavior from multimodal inputs. It integrates cross-modal learning and semantic graph reasoning to map text, audio, gestures, and expressions into coordinated avatar responses. The framework supports adaptive personality modeling, emotional intelligence, and contextual decision-making, enabling digital humans to function as immersive assistants, presenters, educators, and companions. This invention advances the state of generative AI-driven autonomous human simulation<br/></p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8020-82d1-c2b36117b3b8" class="image"><a href="Patents/image%202.png"><img style="width:768px" src="Patents/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80c3-b81a-caabc843e4af" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80ea-bdbd-faf073b9b461" class=""><strong>Development platform for digital humans (2024)<br/></strong>US Patent 11,893,669</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8014-8d67-c946058a82a6" class="">This patent presents a cognitive architecture for autonomous digital humans, integrating perception, reasoning, memory, and generative synthesis to support lifelike interactions. The system fuses multimodal inputs—speech, text, gestures, and expressions—into a context graph and neural reasoning engine that models user intent and adapts behavior dynamically. By leveraging generative AI models, it produces human-like responses, emotions, and actions with contextual awareness and fluid timing. The framework supports both short-term adaptive interactions and long-term personality learning, enabling use cases such as digital assistants, educators, companions, and immersive media avatars</p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-804d-a9ed-e44b4fd8e596" class="image"><a href="Patents/image%203.png"><img style="width:384px" src="Patents/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80b7-bdeb-ef9eaa10a4b6" class=""><strong>Autonomous generation, deployment, and personalization of real-time interactive digital agents (2023)<br/></strong>US Patent App. 17/686,201</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-809d-a236-e6656f077b85" class="">This application describes a real-time generative AI framework for interactive digital humans that communicate naturally across speech, text, gesture, and facial expression. It employs multimodal fusion, semantic graphs, and generative neural models to synthesize avatars with photorealistic appearance, emotional intelligence, and contextual responsiveness. The system supports streaming neural rendering and adaptive personality modeling, enabling fluid, low-latency interactions with continuity of behavior over time. Applications include immersive assistants, presenters, educators, and companions, advancing hyper-realistic human–AI interaction in metaverse, education, and customer engagement settings<br/></p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80c9-8ea1-cceba265a80e" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80b0-bbf1-e7b2ab460286" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80ef-8298-ed65a0df9122" class="image"><a href="Patents/image%204.png"><img style="width:709.9479370117188px" src="Patents/image%204.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8094-b2d6-f19c6574e319" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8025-967d-cf3d9c3c5055" class="image"><a href="Patents/image%205.png"><img style="width:709.9479370117188px" src="Patents/image%205.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80de-99a0-ebf087ed44a7" class=""><strong>Structural assembly for digital human interactive display (2024)<br/></strong>US Patent 12,159,337</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80ca-9079-e1c576606539" class="">This patent describes a real-time generative AI system for interactive digital humans, enabling lifelike communication across speech, text, gesture, and facial expression. It integrates multimodal fusion, semantic graphs, and deep generative models to synthesize avatars that exhibit photorealistic appearance, contextual intelligence, and emotional responsiveness. By employing streaming neural rendering and adaptive personality modeling, the framework supports low-latency interactions with continuity of behavior and memory across sessions. Applications include immersive assistants, educators, companions, and media presenters, advancing human-like AI avatars for the metaverse and enterprise engagement</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80e4-9e87-dbf2d4cf3f35" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80c2-a086-f5dc353cc176" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80d6-a389-d3e103e060cc" class="image"><a href="Patents/image%206.png"><img style="width:288px" src="Patents/image%206.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8069-a92a-e4a8ed9ef1f2" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8067-bd6f-d521d43f9fa0" class="image"><a href="Patents/image%207.png"><img style="width:331.9444580078125px" src="Patents/image%207.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80ba-9182-d07cf604e690" class=""><strong>Interactive system application for digital humans (2024)<br/></strong>US Patent 11,989,810</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-805e-b7c6-c66cd44c93de" class="">This patent introduces a multi-modal generative AI framework for digital humans that unifies dialogue, gestures, facial expressions, and contextual cues into coherent, lifelike interactions. The system leverages cross-modal learning, semantic graph reasoning, and deep generative models to synthesize avatars with photorealistic appearance, adaptive personality, and emotional intelligence. It ensures continuity of behavior and memory across interactions, enabling persistent, human-like digital presence. Applications span immersive assistants, media anchors, educators, companions, and metaverse avatars, establishing a foundation for next-generation digital human engagement<br/></p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8033-9632-f12e1bb8cef0" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8095-9bad-d1cb320952c2" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-803a-926f-c0f3a079f26a" class="image"><a href="Patents/image%208.png"><img style="width:466.97918701171875px" src="Patents/image%208.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8041-a4b6-c07119219913" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80ee-b4ea-c2b0356746c7" class="image"><a href="Patents/image%209.png"><img style="width:466.97918701171875px" src="Patents/image%209.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80ac-9611-d137b70cf10d" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8036-81cd-f06132b25e7c" class="image"><a href="Patents/image%2010.png"><img style="width:331.9618225097656px" src="Patents/image%2010.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80bf-b8e6-dae8dd566ffe" class=""><strong>Display screen or portion thereof with graphical user interface (2024)<br/></strong>US Patent App. 29/765,736, US Patent App. 29/875,809, US Patent App. 29/875,810, US Patent App. 29/765,737, US Patent App. 29/850,771, US Patent App. 29/765,742, US Patent App. 29/765,738</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-802d-b838-eb6750759107" class="">Authored a portfolio of 7 granted design patents (USD965004, USD969842, USD989800, USD1002642, USD1012114, USD1017624, USD1020788) covering graphical user interfaces and form factors across Samsung Galaxy smartphones, advanced display systems, and large-scale digital signage platforms. These patents shaped the visual interaction design and user experience standards for Samsung’s consumer and enterprise products, complementing my utility patent work in on-device AI, AR/VR SLAM, and generative digital humans.</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80fd-85e9-fdb0efb4d546" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8022-a767-d4164fa343b1" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2ef5d2fa-8cef-80e7-8c01-c2540c17948e" class="">On-Device AI for Samsung Galaxy Smartphones</h2></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8071-a07d-f5009ac50693" class="">At Samsung, I pioneered on-device AI frameworks that power visual intelligence, contextual awareness, and AR features on Galaxy flagship smartphones, now used daily by millions worldwide. These patents highlight contributions at the intersection of computer vision, deep learning, and user intelligence systems, directly deployed in commercial products. Together, these patents form the AI backbone of Samsung Galaxy smartphones, driving AR, vision, contextual intelligence, and user-adaptive experiences used by millions of consumers globally.</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80b8-9a5f-dc18500f2486" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8044-b066-f0c3d0ae3c9b" class=""><strong>Augmented reality (2020)<br/></strong>US Patent 10,769,438</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-801d-8c3e-ddd14e3a2c35" class="">Developed an AR framework for automatic object detection, semantic segmentation, and contextual overlays across 2D, 3D, and 360° media. Optimized for low-latency annotation and immersive user experiences, this technology underpinned AR features on Galaxy smartphones at global scale.</p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-800b-a11b-ee5a83228b7c" class="image"><a href="Patents/14d3d04e-d43a-40af-8a52-cb307801f6d7.png"><img style="width:192px" src="Patents/14d3d04e-d43a-40af-8a52-cb307801f6d7.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80ff-96c7-e6d9b82837d5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80bf-a265-f98f96a954a0" class=""><strong>Emotion aware reactive interface (2022)<br/></strong>US Patent 11,334,376</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8060-a097-f710ddd5659f" class="">Invented a computational photography and AI pipeline that integrates object recognition, scene understanding, and emotional context to enhance images, video, and UI reactions. Balances real-time on-device AI with cloud resources to deliver adaptive, personalized camera and gallery features across Samsung’s Galaxy devices.</p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8027-a9dd-ec386110bc92" class="image"><a href="Patents/33b1e6f6-447d-4de0-864d-2c7a03da3757.png"><img style="width:336px" src="Patents/33b1e6f6-447d-4de0-864d-2c7a03da3757.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80fe-b559-dae1bee7d6c5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80b5-8c22-d6186b5edfc2" class=""><strong>System and method for contextual driven intelligence (2021)<br/></strong>US Patent 10,909,371</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8080-9a14-dd7f969afdd1" class="">Created a context-aware AI system that fuses vision, sensors, and user activity to predict intent and dynamically adapt device behavior. Powers personalized recommendations, contextual app launches, and adaptive AR overlays, forming the basis of Samsung’s contextual intelligence layer.</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80a7-b499-ec578dd89aee" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80a9-956a-f364f8417671" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-805b-bbb2-ce6f2d4cf7cb" class="image"><a href="Patents/image%2011.png"><img style="width:709.96533203125px" src="Patents/image%2011.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80bd-b38a-f13e8fc0bbc5" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80ae-bd84-db1453e026bf" class="image"><a href="Patents/image%2012.png"><img style="width:336px" src="Patents/image%2012.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-802c-a618-c530011136e8" class=""><strong>Vision intelligence management for electronic devices (2021)<br/></strong>US Patent 10,902,262</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8092-afe0-c9e593ff9ff3" class="">Designed a vision intelligence management framework that orchestrates multiple deep learning models on-device. Dynamically selects models based on confidence, QoS, and resource constraints, enabling scalable object, scene, and attribute recognition. This framework became the backbone of Galaxy visual intelligence features.</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80c9-9bc2-c4090f9219d8" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80ed-b244-dbd739159ebb" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8075-8d33-ee0b10ca29c6" class="image"><a href="Patents/image%2013.png"><img style="width:709.96533203125px" src="Patents/image%2013.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-801f-be14-d3bf13db7bc1" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-805c-8b45-c1a7bf3bb6a4" class="image"><a href="Patents/image%2014.png"><img style="width:331.9618225097656px" src="Patents/image%2014.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h2 id="27f5d2fa-8cef-80b0-84af-f8a19e7fe504" class="">SLAM for AR/VR Applications</h2></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80b8-a08e-d32a090565c7" class="">My patented research in event-based vision and SLAM (Simultaneous Localization and Mapping) advances the foundation of low-power, low-latency AR/VR systems. By integrating Dynamic Vision Sensors (DVS) with CMOS cameras and IMUs, these innovations address the core challenges of tracking, mapping, depth estimation, and relocalization in real-world, resource-constrained devices. This portfolio demonstrates leadership in next-generation AR/VR sensing and mapping technologies, shaping the future of untethered, mobile immersive platforms. Collectively, these patents establish a comprehensive event-driven SLAM pipeline — covering feature detection, tracking, depth estimation, mapping, loop closure, and relocalization — all optimized for low-power AR/VR platforms. They showcase my leadership in bridging novel sensing (DVS) with scalable AR/VR system design for real-world adoption.</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8022-8db7-dd666216019d" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80d5-a3e0-c8787f3af668" class=""><strong>Camera pose determination and tracking (2020)<br/></strong>US Patent 10,839,547</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8043-8794-ca0ea77aac9e" class="">Proposed a monocular SLAM framework that merges asynchronous DVS events with keyframes from standard cameras. Achieves robust pose estimation and map generation under fast motion and challenging lighting, reducing drift and enhancing real-time AR/VR experiences.</p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-804a-865c-f60c202a00b5" class="image"><a href="Patents/image%2015.png"><img style="width:240px" src="Patents/image%2015.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8020-a080-ed7e84b5bf6e" class=""><strong>Camera pose and plane estimation using active markers and a dynamic vision sensor (2020)<br/></strong>US Patent 10,529,074</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8001-900a-c4c47991061e" class="">Invented an event-driven feature detection method that processes asynchronous pixel-level DVS events for SLAM, detecting edges, corners, and motion at microsecond resolution. Enables robust, low-latency tracking under high-speed motion and HDR conditions where conventional vision fails.</p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8065-9dd4-cecd340f6d8b" class="image"><a href="Patents/image%2016.png"><img style="width:384px" src="Patents/image%2016.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-800d-9d76-d6bdab6a1507" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-809c-9a5b-c0c417c91067" class=""><strong>Semantic mapping for low-power augmented reality using dynamic vision sensor (2023)<br/></strong>US Patent 11,558,551 and US Patent 10,812,711</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-80bf-bce3-c35551b8b79a" class="">Designed an event-based loop closure and relocalization framework that uses DVS feature descriptors for place recognition, drift correction, and pose recovery. Provides long-term stability and accuracy in extended AR/VR sessions while reducing compute and energy cost.</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8015-96b2-d91152eabf9f" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8043-a844-c701f8fc7452" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8087-8bf9-fddc20a80f2a" class="image"><a href="Patents/image%2017.png"><img style="width:709.96533203125px" src="Patents/image%2017.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80c7-942b-d1688a4a5888" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-809a-b0f5-d547e6c5921a" class="image"><a href="Patents/image%2018.png"><img style="width:1070px" src="Patents/image%2018.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-803e-862c-fc7ed818812e" class=""><strong>Semi-dense depth estimation from a dynamic vision sensor (DVS) stereo pair and a pulsed speckle pattern projector (2021)<br/></strong>US Patent 11,143,879</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8092-9b12-f3311a60ea3a" class="">Created a depth estimation system that fuses DVS stereo pairs with a pulsed speckle projector, enabling depth recovery in low-light or low-texture scenes. Produces low-latency, semi-dense depth maps robust to static or dynamic environments, ideal for AR/VR and mobile vision.</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80d7-91a0-fce5aff230de" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-808a-baac-fa25729ca32e" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80cd-aa9b-cd57fdcf4014" class="image"><a href="Patents/6708b67b-f20e-46fe-8a35-85fdf0bf16fd.png"><img style="width:536.7741935483871px" src="Patents/6708b67b-f20e-46fe-8a35-85fdf0bf16fd.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80e3-9545-f920c3051988" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80cb-849a-ff1821c16727" class="image"><a href="Patents/4aa17195-e757-46e9-a0a8-b46f18985ae3.png"><img style="width:488.110599078341px" src="Patents/4aa17195-e757-46e9-a0a8-b46f18985ae3.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-8012-871c-d8cc966bb6d7" class=""><strong>CMOS-assisted inside-out dynamic vision sensor tracking for low power mobile platforms (2022)<br/></strong>US Patent 11,381,741 and US Patent 11,202,006</p></div><div style="display:contents" dir="auto"><p id="27f5d2fa-8cef-807b-9490-d733cb3b251b" class="">Advanced a hybrid tracking framework combining DVS, CMOS, and IMU data with a confidence-driven sensor scheduler. Delivers energy-efficient SLAM with semantic mapping and persistent AR overlays, powering next-gen mobile AR/VR devices.</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80f8-8ee2-c81c59813b61" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8050-b9b7-feda13c7d226" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8007-a98c-d2024543aa93" class="image"><a href="Patents/5d1f4062-d10a-4785-aaec-5c5c18f8640a.png"><img style="width:468.7528344671202px" src="Patents/5d1f4062-d10a-4785-aaec-5c5c18f8640a.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-803a-9748-ef3e9556876c" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80cf-8e46-f224e8c073d1" class="image"><a href="Patents/image%2019.png"><img style="width:331.9618225097656px" src="Patents/image%2019.png"/></a></figure></div></div></div></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

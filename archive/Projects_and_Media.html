@@ -1,0 +1,731 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Projects &amp; Media</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ee5d2fa-8cef-806d-8c44-ddebec2475b9" class="page sans"><header><h1 class="page-title" dir="auto">Projects &amp; Media</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="2ee5d2fa-8cef-8042-a96d-f0c6e28c0f45" class="">Two AI</h1></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8096-9461-c1d3483266ac" class=""><a href="https://www.youtube.com/@twoplatforms/videos">https://www.youtube.com/@twoplatforms/videos</a></p></div><div style="display:contents" dir="auto"><h3 id="2ee5d2fa-8cef-80ac-a221-d7722aa89f74" class=""><strong>Jio AI Cloud</strong></h3></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-8004-a10a-ee1ca83b1442" class="">Jio Platforms (largest data and telecom provider in India) had announced to provide 100GB free storage space to their 400M+ user base via Jio Cloud. Jio wanted to provide intelligence features to their large user base at modest cost while supporting native multilingual behavior of Indian users. Me and my team deployed AI-powered multilingaul search and understanding at national scale on Jio AI Cloud serviing 400M+ users across multimodal inputs (text, images, audio, video, documents) on CPU and edge infrastructure. Development included massive scale processing in the order of peta bytes (400M users, 5K average files / user), custom text-image models, custom vector indexes. This project generated $10M+ in ARR.</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80f6-b480-f94c5d8b4409" class="">
+</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8013-8557-f0a26f9c6444" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8067-bd4d-dcc3f67c781e" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80ac-b9ae-c703e7fdf44b"><div class="source"><a href="https://www.youtube.com/watch?v=J9PmCjUzcpw">https://www.youtube.com/watch?v=J9PmCjUzcpw</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8028-ab0d-ee170c63ca51" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8099-b67d-d6bc8db1df3a"><div class="source"><a href="https://www.youtube.com/watch?v=uTrI5NGy-LY">https://www.youtube.com/watch?v=uTrI5NGy-LY</a></div></figure></div></div></div></div></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80be-b486-f21c7666f99c"><a href="https://www.jioaicloud.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">JioAICloud - Free Cloud Storage | AI Photoplay &amp; Easy Share - Live Intelligently</div><div class="bookmark-description">Live intelligently with JioAICloud – free cloud storage, AI Photoplay for smart photo edits, and seamless sharing via Easy Share. Explore Now!</div></div><div class="bookmark-href"><img src="https://www.jioaicloud.com/assets/images/favicon.ico?v=1" class="icon bookmark-icon"/>https://www.jioaicloud.com/</div></div><img src="https://static.jiocloud.com/web2.0/common/images/jiocloud-logo-1.png" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80bf-a089-da89f082cb66" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2ee5d2fa-8cef-803c-b80e-c8e0b61a56b0" class=""><strong>SUTRA - Multilingual LLMs &amp; Enterprise AI</strong></h3></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80ec-affc-c3e2f9ef7f3d" class="">During the launch of ZAPPY in APAC market, we noticed that existing LLMs (GPT 3.5, Aya, Okapi, BLOOM etc.) were failing in non-english languages. Most LLMs and tokenizers were mostly trained in English (see <a href="https://www.two.ai/blog/understanding-sutra-s-multilingual-tokenizer">tokenizer comparison</a>). SUTRA Multilingual architecture was designed to address this gap. It decoupled concept learning from language learning, inspired by human cognition (see: <a href="https://youtube.com/watch?v=5t1vTLU7s40&amp;t=873">LeCun</a>, <a href="https://youtube.com/watch?v=F3Jd9GI6XqE&amp;t=5168">Gibson</a>), and treats languages like modalities, similarly to how multi-modal LLMs project audio/images to the LLMs embedding space. This enabled adding new languages without re-training the base concept model.</p></div><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-801d-8ccf-c6b9aad5fda7" class="image"><a href="Projects%20&amp;%20Media/image.png"><img style="width:709.96533203125px" src="Projects%20&amp;%20Media/image.png"/></a></figure></div><div style="display:contents" dir="auto"><div id="2f15d2fa-8cef-80ec-8eaa-f47256b37bd0" class="column-list"><div style="display:contents" dir="auto"><div id="2f15d2fa-8cef-801e-9677-ef1eb99055e5" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-8099-abdc-fc8131733876"><div class="source"><a href="https://www.youtube.com/watch?v=aMzcvz5tqRs">https://www.youtube.com/watch?v=aMzcvz5tqRs</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2f15d2fa-8cef-805f-8339-ecdaf192a665" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2f15d2fa-8cef-8010-9def-e6949a0a26a4" class="image"><a href="Projects%20&amp;%20Media/6ffe6226-3b0f-4f4f-b90a-e5ee2efe77b5.png"><img style="width:288px" src="Projects%20&amp;%20Media/6ffe6226-3b0f-4f4f-b90a-e5ee2efe77b5.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-808e-8e05-d9cd3853bff3" class=""><a href="https://www.two.ai/blog/introducing-sutra">https://www.two.ai/blog/introducing-sutra</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8000-8138-e044b9264fd8" class=""><a href="https://www.two.ai/blog/understanding-sutra-s-multilingual-tokenizer">https://www.two.ai/blog/understanding-sutra-s-multilingual-tokenizer</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8072-8731-ec6db885d0df" class=""><a href="https://www.two.ai/blog/sutra-op-on-premise-enterprise-ai">https://www.two.ai/blog/sutra-op-on-premise-enterprise-ai</a></p></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80a1-ba2a-d5ba1c400373" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2f05d2fa-8cef-8096-a434-c59b3bb8a920" class=""><strong>ZAPPY AI</strong></h3></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80a6-a6e9-d7c560d09025" class=""><a href="https://www.zappy.ai/">ZAPPY</a> is a social AI companion app where you can chat (text, voice, video) with AI characters, create your own and use features like drafting messages and sharing moments. Zappy supports long-term memory, no blind spots and contextual conversations. More than 20M+ messages have been shared on ZAPPY so far from 100K+ users.</p></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-8069-9c9f-d209e826723b" class="column-list"><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-80c4-8caf-df067197e8a1" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-80a3-9324-f98ad785a343"><div class="source"><a href="https://www.youtube.com/watch?v=j2eRbxfQCGo">https://www.youtube.com/watch?v=j2eRbxfQCGo</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-8042-8030-c253df125d81" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-8098-8963-f0f1430a5287"><div class="source"><a href="https://www.youtube.com/watch?v=CFsgSCJO9WI">https://www.youtube.com/watch?v=CFsgSCJO9WI</a></div></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80bd-b39f-f5be093f7825" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2ee5d2fa-8cef-80e1-b17d-e8218238f89b" class=""><strong>AutoCameo</strong></h3></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8052-9ec2-ec796b519d6f" class="">A service that automates personalized video messages from celebrities to fans at scale. In partnership with Jio Platforms during the 2023 IPL, AutoCameo enabled cricket fans to receive personalized videos from stars like Rohit Sharma and Virat Kohli (~300k users, reached millions of fans). The technology used TWO&#x27;s HALO-2 engine to generate high-fidelity AI videos with minimal delay</p></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-8021-a5c1-c465e6a40ec1" class="column-list"><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-805a-9a45-c48cc632dc9d" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-805b-9b70-ef7496da90ed"><div class="source"><a href="https://www.youtube.com/watch?v=iANNl-Fhcss">https://www.youtube.com/watch?v=iANNl-Fhcss</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-8060-a259-fd388eb8a475" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-805a-a7fd-c943a5c45328"><div class="source"><a href="https://www.youtube.com/watch?v=WN9KRNq7wgc">https://www.youtube.com/watch?v=WN9KRNq7wgc</a></div></figure></div></div></div></div></div><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-80a6-963f-ea42358d3239" class="image"><a href="Projects%20&amp;%20Media/image%201.png"><img style="width:2480px" src="Projects%20&amp;%20Media/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-809c-9820-cc064efe1faa" class=""><a href="https://www.two.ai/blog/key-highlights-from-ipl-2023">https://www.two.ai/blog/key-highlights-from-ipl-2023</a></p></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80d9-861f-f3c009bde78e" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2f05d2fa-8cef-80e3-bafc-dabcbab3bc9e" class=""><strong>SUTRA Avatar </strong></h3></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-8074-80b0-cc80936d7a19" class="">SUTRA Avatar was a real-time, AI-powered video call and digital character service. It creates lifelike, customizable digital avatars that can engage in, move, and talk just like a real person, aiming to revolutionize digital interactions in fields like customer service, education, and entertainment.</p></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-801a-b884-e8743ba5cdc7" class="column-list"><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-8067-a394-dd76aca66475" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-805a-898b-fc3ce4af9604" class="image"><a href="Projects%20&amp;%20Media/image%202.png"><img style="width:384px" src="Projects%20&amp;%20Media/image%202.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-80f0-8f03-db143e640cfb" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-801a-94e3-fb25c9d300ad" class="image"><a href="Projects%20&amp;%20Media/image%203.png"><img style="width:2230px" src="Projects%20&amp;%20Media/image%203.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2f05d2fa-8cef-80a1-979d-d46354c24f3e" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="ltr"><figure id="2f05d2fa-8cef-808c-9a36-df73906c8204" class="image"><a href="Projects%20&amp;%20Media/image%204.png"><img style="width:60px" src="Projects%20&amp;%20Media/image%204.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-8052-99ca-e6c16f0b6994" class=""><a href="https://www.two.ai/blog/announcing-sutra-avatar">https://www.two.ai/blog/announcing-sutra-avatar</a></p></div><div style="display:contents" dir="auto"><p id="2f05d2fa-8cef-80a7-ae82-ec93336a8ddf" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2ee5d2fa-8cef-80ef-9949-c234bf837f9d" class="">Samsung STAR Labs &amp; NEON</h1></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8062-85e6-c17a766e00f1" class="">At STAR Labs (Samsung&#x27;s moonshot project), I worked on Neon - photorealistic digital humans with real-time behavior synthesis. There was a lot going on behind the scenes, facial expression modeling, photorealistic rendering, speech synchronization, behavior generation. We had extensive media coverage and showed the world how we could be interacting with AI in the future</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-809d-aff7-cefafcf5ac79" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-8026-a8b1-d4120ed486c7" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80d6-bacc-c49bab0de136"><div class="source"><a href="https://www.youtube.com/watch?v=sV6yjKZ6GXk">https://www.youtube.com/watch?v=sV6yjKZ6GXk</a></div></figure></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80cb-8d34-c73b9cca30d9" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-801a-8b92-dd6776ccfc15"><div class="source"><a href="https://www.youtube.com/watch?v=UYihndxPeV4">https://www.youtube.com/watch?v=UYihndxPeV4</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80a9-9ac3-e679fe22526b" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-807c-86e3-f876f02c1111"><div class="source"><a href="https://www.youtube.com/watch?v=gorCOJ2BcAg">https://www.youtube.com/watch?v=gorCOJ2BcAg</a></div></figure></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8014-9c02-d348b61251fd" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2f15d2fa-8cef-80fb-8be7-c91eefd13e2e"><div class="source"><a href="https://www.youtube.com/watch?v=hObhjF-5olU">https://www.youtube.com/watch?v=hObhjF-5olU</a></div></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8098-bbd3-dc35d79d253c" class=""><a href="https://edition.cnn.com/2020/01/10/tech/samsung-neon">https://edition.cnn.com/2020/01/10/tech/samsung-neon</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-808e-a228-c2cea3dbc51c" class=""><a href="https://www.cnbc.com/2020/01/06/samsung-neon-artificial-human-announced-at-ces-2020.html">https://www.cnbc.com/2020/01/06/samsung-neon-artificial-human-announced-at-ces-2020.html</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8043-bdf1-c7172f012b67" class=""><a href="https://www.techradar.com/news/samsungs-neon-avatars-aim-to-be-ai-companions-youll-mistake-for-human">https://www.techradar.com/news/samsungs-neon-avatars-aim-to-be-ai-companions-youll-mistake-for-human</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-809f-8ef5-e2701580221a" class=""><a href="https://www.digitaltrends.com/cool-tech/samsung-humanoid-chatbots-ces-2020-neons/">https://www.digitaltrends.com/cool-tech/samsung-humanoid-chatbots-ces-2020-neons/</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-80b4-a534-dd1e357a68a0" class=""><a href="https://www.youtube.com/@NEONdotlife/videos">https://www.youtube.com/@NEONdotlife/videos</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-80af-8370-d82b562bfae8" class=""><a href="https://x.com/neondotlife">https://x.com/neondotlife</a><br/></p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8004-be1f-ebae0dbe7aa7" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2ee5d2fa-8cef-80d4-bd79-ea863baf88ad" class="">Samsung Research America</h1></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-808b-ab3b-fdddfebfda4d" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2ee5d2fa-8cef-8019-9a80-f00848a346b7" class=""><strong>AR for Phone &amp; Headset</strong></h3></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8017-ac10-e0087ae77469" class="">Built DVS camera algorithms for AR applications; the full system from frame capture, synchronization, calibration, sensor fusion, visual-inertial SLAM, structure classification and simplification, fusion and apps. Optimized to run in real-time (&gt;20fps) on S8/S9 phone. [Patents: <a href="https://patents.google.com/patent/US10529074">1</a>, <a href="https://patents.google.com/patent/US10839547">2</a>, <a href="https://patents.google.com/patent/US11143879">3</a>, <a href="https://patents.google.com/patent/US11381741">4</a>, <a href="https://patents.google.com/patent/US11558551">5</a>]</p></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80b4-82c6-d2d0121b295a" class="column-list"><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80bb-8200-f9b905d6834b" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-80e2-ac80-ca0f433d7897" class="image"><a href="Projects%20&amp;%20Media/image%205.png"><img style="width:645.9722290039062px" src="Projects%20&amp;%20Media/image%205.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2ef5d2fa-8cef-80a4-9329-e6a470a21693" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="2ef5d2fa-8cef-8036-bc09-c15b6c479cee" class="image"><a href="Projects%20&amp;%20Media/image%206.png"><img style="width:709.96533203125px" src="Projects%20&amp;%20Media/image%206.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><h3 id="2ee5d2fa-8cef-80a8-be5f-ddd49ef6ca90" class=""><strong>Bixby Vision</strong></h3></div><div style="display:contents" dir="ltr"><figure id="2f15d2fa-8cef-80d5-a6c4-cf5e50e18136" class="image"><a href="Projects%20&amp;%20Media/image%207.png"><img style="width:709.96533203125px" src="Projects%20&amp;%20Media/image%207.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8072-8b2b-d84c7a79b119" class="">Led the design and scaling of on-device AI and perception platform (Bixby Vision) powering over 100 million Galaxy devices worldwide. I architected and drove Bixby Vision, taking it from early research prototypes to a globally deployed, production-grade system used daily across smartphones, TVs, displays, and XR devices. Built Samsung’s on-device AI stack from first principles, enabling efficient ML deployment across Android and Tizen under tight latency, power, and memory constraints. This work required deep hardware–software co-design with semiconductor and platform partners, integrating NPU acceleration, quantization, and cross-platform inference into the mobile ecosystem. Alongside the technical roadmap, I led and scaled a globally distributed team of 60+ engineers and researchers, bridging applied research with real-world reliability at massive scale</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8058-994e-e7a6962f22be" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-80b4-b603-d9364b397dc1" class=""><a href="https://www.samsung.com/us/explore/bixby/sees/">https://www.samsung.com/us/explore/bixby/sees/</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8025-9405-fe8bd6624266" class=""><a href="https://www.youtube.com/watch?v=iCuMtKOZ3Fo&amp;t=243s">https://www.youtube.com/watch?v=iCuMtKOZ3Fo&amp;t=243s</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8089-8cb6-e7584d6593d8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8078-8f02-da6f624513ca" class=""><a href="https://www.youtube.com/watch?v=xAYq1dPVSmQ">https://www.youtube.com/watch?v=xAYq1dPVSmQ</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-80a7-bc7d-e64fb9d6ab97" class=""><a href="https://www.youtube.com/@ttt_archive">https://www.youtube.com/@ttt_archive</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8023-924b-fd751877c4ab" class=""><a href="https://www.youtube.com/watch?v=a9cQtU0eNPs">https://www.youtube.com/watch?v=a9cQtU0eNPs</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8041-80b2-e6dc72401064" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2ee5d2fa-8cef-8073-932b-dce9c7f9aaf0" class="">University of Colorado</h1></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-80d2-a6ad-c276d4620e05" class=""><a href="https://vast.uccs.edu/~abendale/papers/Bendale_PhD_Thesis.pdf">Open World Recognition</a> is a machine learning paradigm I developed during my PhD to enable models to operate in real-world environments where new concepts appear continuously. Unlike traditional closed-set systems that recognize only predefined categories, Open World Recognition allows models to detect previously unseen concepts, incrementally learn them over time, and retain prior knowledge without catastrophic forgetting. The framework combines open-set recognition (detecting unknowns) with incremental learning (adding new knowledge), making it essential for applications such as robotics, autonomous driving, and other dynamic real-world systems. The core ideas were introduced in a <a href="https://arxiv.org/abs/1412.5687">CVPR 2015 oral paper</a> and later extended to deep learning models in a <a href="https://arxiv.org/abs/1511.06233">CVPR 2016 paper</a>. Since then, Open World Recognition has become an active area of research across government and industry, including major investments such as the $40M+ SAIL-ON program funded by IARPA.</p></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8000-b341-ffde387f617f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2ee5d2fa-8cef-802b-852b-f3431e15694c"><div class="source"><a href="https://www.youtube.com/watch?v=41YrOiavhGc">https://www.youtube.com/watch?v=41YrOiavhGc</a></div></figure></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8018-bf10-ca29c964218c" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2ee5d2fa-8cef-8058-bfe9-dadd2350d7f8" class="">MIT Media Lab</h1></div><div style="display:contents" dir="auto"><p id="2ef5d2fa-8cef-8043-be87-c186e184ab95" class="">VisionBlocks was an on-demand, in-browser computer vision application building platform, aimed at users without any prior programming experience. User could create and share computer vision applications using simple drag-and-drop computer vision processing blocks with Scratch Programming Language like interface. VisionBlocks was awarded Google’s App Engine Research award for its innovative concept aimed at bringing computer vision to masses.</p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-800c-ac81-cef257ef2386" class=""><a href="https://cloudplatform.googleblog.com/2013/02/research-projects-on-google-app-engine.html?hl=ca&amp;m=1">https://cloudplatform.googleblog.com/2013/02/research-projects-on-google-app-engine.html?hl=ca&amp;m=1</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-806e-b558-ee2415ff1a4f" class=""><a href="https://www.eweek.com/cloud/google-apps-engine-research-awards-go-to-7-innovative-projects/">https://www.eweek.com/cloud/google-apps-engine-research-awards-go-to-7-innovative-projects/</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-8015-9c00-eb5439a4ecd1" class=""><a href="https://www.media.mit.edu/projects/visionblocks/overview/">https://www.media.mit.edu/projects/visionblocks/overview/</a></p></div><div style="display:contents" dir="auto"><p id="2ee5d2fa-8cef-809f-a411-caf7ca9e7f0a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2f15d2fa-8cef-8071-bad0-d56d86012dd7" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2ee5d2fa-8cef-80af-95ef-f1ce854e2a59" class="">MIT McGovern Institute of Brain Research &amp; Department of Brain &amp; Cognitive Sciences</h1></div><div style="display:contents" dir="auto"><p id="2f15d2fa-8cef-8095-944e-e607b7641a19" class="">I was a student in the <a href="https://dicarlolab.mit.edu/">DiCarlo Lab</a>, where I worked with Nicolas Pinto and Prof. James DiCarlo on pedestrian detection systems and benchmarking vision models inspired by the primate visual cortex (V1-like models). Because these models were computationally intensive, the lab leveraged Sony PlayStations and NVIDIA GPUs to achieve scale, using Python, C++, and metaprogramming techniques. I was also involved in early prototypes of PyCUDA.</p></div><div style="display:contents" dir="auto"><p id="2f15d2fa-8cef-80c0-b6ee-ffa24072f7ce" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="2f15d2fa-8cef-80c9-a95d-f239576ffdbc" class="image"><a href="Projects%20&amp;%20Media/image%208.png"><img style="width:709.9306030273438px" src="Projects%20&amp;%20Media/image%208.png"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
