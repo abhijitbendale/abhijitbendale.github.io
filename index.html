@@ -14,11 +14,11 @@
     /* General body styling */
     body { 
       margin: 0; 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: #333;
-      background-color: #EFEFEF; 
+      background: #f8f9fa; 
     }
     
     /* Main container that holds all content - centered with max width of 900px */
@@ -26,10 +26,10 @@
       max-width: 900px;
       width: calc(100% - 40px);
       margin: 20px auto;
-      border-radius: 15px;
+      border-radius: 20px;
       background-color: #fff;
       padding: 40px;
-      box-shadow: 0px 0px 10px #999;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     }
     
     /* Link styling */
@@ -47,13 +47,36 @@
     }
 
     /* Tab navigation bar styling */
-    .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 28px; padding-bottom: 10px; border-bottom: 1px solid #ddd; }
+    .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 28px; padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
     
     /* Individual tab button styling */
-    .tab-btn { border: 1px solid #ddd; background: #f7f7f7; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-size: 14px; }
+    .tab-btn { 
+      border: 1px solid #e0e0e0; 
+      background: #f8f9fa; 
+      padding: 10px 18px; 
+      border-radius: 12px; 
+      cursor: pointer; 
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      color: #555;
+    }
+    .tab-btn:hover {
+      background: #fff;
+      border-color: #0050e7;
+      color: #0050e7;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,80,231,0.15);
+    }
     
     /* Active tab button styling (the currently selected tab) */
-    .tab-btn.active { background: #fff; border-color: #999; font-weight: bold; box-shadow: 0 0 6px rgba(0,0,0,0.08); }
+    .tab-btn.active { 
+      background: #0050e7; 
+      border-color: #0050e7; 
+      color: #fff;
+      font-weight: 600; 
+      box-shadow: 0 4px 12px rgba(0,80,231,0.25);
+    }
 
     /* Tab content container */
     .tab-content { 
@@ -108,7 +131,7 @@
     }
     
     /* Profile photo - floats to the right side of content */
-    .right-photo { float: right; width: 160px; margin-left: 25px; border-radius: 10px; }
+    .right-photo { float: right; width: 160px; margin-left: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
     
     /* Muted text styling for secondary information */
     .muted { color: #666; }
@@ -140,12 +163,13 @@
       width: 80px;
       height: 80px;
       background: #f5f5f5;
-      border-radius: 6px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 32px;
       overflow: hidden;
+      transition: all 0.3s ease;
     }
 
     .publication-thumbnail img {
@@ -154,6 +178,12 @@
       object-fit: contain;
       object-position: center;
       padding: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .publication-item:hover .publication-thumbnail {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
     }
 
     .publication-content {
@@ -221,11 +251,12 @@
       width: 80px;
       height: 80px;
       background: #f5f5f5;
-      border-radius: 6px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 32px;
+      transition: all 0.3s ease;
     }
 
     .patent-thumbnail img {
@@ -234,6 +265,12 @@
       object-fit: contain;
       object-position: center;
       padding: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .patent-item:hover .patent-thumbnail {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
     }
     .patent-content {
       flex: 1;
@@ -288,12 +325,13 @@
       width: 80px;
       height: 80px;
       background: #f5f5f5;
-      border-radius: 6px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 32px;
       overflow: hidden;
+      transition: all 0.3s ease;
     }
 
     .work-thumbnail img {
@@ -302,6 +340,12 @@
       object-fit: contain;
       object-position: center;
       padding: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .work-item:hover .work-thumbnail {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
     }
 
     .work-content {
@@ -374,6 +418,62 @@
     .image-modal-content img { max-width: 90vw; max-height: 80vh; object-fit: contain; border-radius:6px; box-shadow:0 8px 30px rgba(0,0,0,0.5); }
     .image-modal-close { position: absolute; right: -8px; top: -8px; background:#fff; border-radius:50%; border:none; width:32px; height:32px; font-size:18px; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,0.2); }
     .image-modal-caption { margin-top:8px; color:#fff; font-size:14px; max-width:90vw; text-align:center; }
+
+    /* Footer styling */
+    footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+    footer a {
+      color: #0050e7;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      #container {
+        padding: 30px 20px;
+        margin: 10px auto;
+        width: calc(100% - 20px);
+        border-radius: 16px;
+      }
+      .right-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        width: 140px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 24px;
+      }
+      .tabs {
+        justify-content: center;
+      }
+      .tab-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+      .publication-item,
+      .patent-item,
+      .work-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .publication-thumbnail,
+      .patent-thumbnail,
+      .work-thumbnail {
+        margin-bottom: 15px;
+      }
+    }
   </style>
 </head>
 
@@ -405,6 +505,11 @@
 
     <!-- DYNAMIC CONTENT CONTAINER -->
     <div id="content" class="tab-content"></div>
+
+    <!-- Footer -->
+    <footer>
+      Last updated February 2026
+    </footer>
   </div>
 
   <!-- Image modal (lightbox) -->
