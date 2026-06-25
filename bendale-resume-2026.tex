@@ -1,0 +1,344 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 3.0 (December 17, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	%a4paper, % Uncomment for A4 paper size (default is US letter)
+	10pt, % Default font size, can use 10pt, 11pt or 12pt
+]{resume} % Use the resume class
+
+%\usepackage{ebgaramond} % Use the EB Garamond font
+\usepackage{mathpazo}
+\usepackage{hyperref}
+
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\newcommand{\instlogo}[3][1.6em]{%
+  \raisebox{-0.2\height}{\includegraphics[height=#1]{#2}}%
+  \hspace{0.6em}\textbf{#3}%
+}
+
+%------------------------------------------------
+
+\name{Abhijit Bendale} % Your name to appear at the top
+
+% You can use the \address command up to 3 times for 3 different addresses or pieces of contact information
+% Any new lines (\\) you use in the \address commands will be converted to symbols, so each address will appear as a single line.
+
+
+\address{+1-617-697-6247 \\ abhijitbendale@gmail.com \\ US Citizen \\ Campbell, CA} % Contact information
+\address{ \href{https://www.linkedin.com/in/abhijit-bendale-8175175/}{Linkedin} \quad  \\ \href{https://scholar.google.com/citations?user=C4QRs3AAAAAJ&hl=en&oi=ao}{Google Scholar} \quad  \\ \href{https://abhijitbendale.github.io/}{Website}}
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%	EXECUTIVE SUMMARY
+%----------------------------------------------------------------------------------------
+
+
+\begin{rSection}{Executive Summary}
+
+Applied AI leader and hands-on engineer with 10+ years building and shipping large-scale ML systems across LLMs, multimodal AI, and computer vision. Delivered production AI platforms at global scale (400M+ users and devices).
+
+%Career spans Founder \& CTO of Two AI, where I built multilingual LLM and multimodal AI platforms end-to-end; CTO of Samsung STAR Labs, where I led NEON, a real-time digital human platform later integrated into Samsung Electronics (\$50M+ internal valuation); and leadership roles at Samsung Electronics, where I architected Bixby Vision and on-device AI platforms deployed across 100M+ Galaxy devices.
+
+Founder \& CTO of Two Platforms (raised 20M seed, 10M ARR), where I built multilingual LLM and multimodal AI platforms deployed at national scale. Former CTO of Samsung STAR Labs, where I led NEON, a real-time generative digital human platform later integrated into Samsung Electronics (\$50M+ internal valuation). Previously at Samsung Electronics, architected on-device AI platforms deployed across 100M+ Galaxy devices.
+
+Deep expertise in large-scale ML systems, distributed training, post-training, RLHF, evals, Agentic AI systems. Expertise in performance optimization across model, runtime, and hardware, with a strong focus on low-latency and high-throughput AI systems. Inventor on 30+ patents with peer-reviewed papers at leading AI conferences (3,500+ citations).
+
+
+\end{rSection}
+
+%\begin{rSection}{Expertise \& Technical Skills}
+%\begin{itemize}
+%\item \textbf{Languages \& Core Tools}: C++, Python, TypeScript, PyTorch, CUDA / Triton, Deepspeed, Ray.
+%\item \textbf{Foundation Models \& Training}: Large-scale pre/post-training of LLMs (Transformer, MoE); multimodal models (vision, audio, CLIP); alignment techniques (RLHF, DPO); efficient fine-tuning (LoRA, QLoRA); distributed training frameworks (DeepSpeed, Ray)
+%\item \textbf{Inference \& Serving}: High-throughput LLM serving (vLLM, NVIDIA NIM, TorchServe); continuous batching, speculative decoding, KV-cache optimization, quantization; real-time low-latency pipelines (sub-100ms)
+%\item \textbf{Retrieval \& Search Systems}: Billion-scale vector search (FAISS, Vertex Matching Engine); RAG pipelines; multimodal retrieval across text, image, audio, and video
+%\item \textbf{AI Agents \& Orchestration}: Multi-agent system design, tool use, LangGraph, Google ADK
+%\item \textbf{Cloud \& Infrastructure}: Production AI platforms on GCP/AWS/Kubernetes; distributed data pipelines; observability and reliability (Prometheus, Grafana)
+%\end{itemize}
+
+\begin{rSection}{Expertise \& Technical Skills}
+\begin{itemize}
+
+\item \textbf{Languages \& Core Tools}: C++, Python, TypeScript, PyTorch, CUDA/Triton, NCCL, MPI.
+
+\item \textbf{Foundation Models \& Training}: LLM/VLM pre-training and fine-tuning; Transformers, MoE, CLIP-style multimodal models; distributed training with DeepSpeed, Ray, FSDP.
+
+\item \textbf{Post-Training \& Alignment}: SFT, RLHF, preference optimization, reward modeling, LLM-as-judge evaluation, synthetic data, human-in-the-loop pipelines; TRL, PEFT.
+
+\item \textbf{Inference \& Serving}: High-throughput LLM serving with vLLM, TGI, NVIDIA NIM, TorchServe; continuous batching, speculative decoding, KV-cache optimization, quantization.
+
+\item \textbf{Retrieval \& Search Systems}: Billion-scale vector search, FAISS, Vertex Matching Engine, PgVector, RAG pipelines; multimodal retrieval across text, image, audio, and video.
+
+\item \textbf{AI Agents \& Orchestration}: Tool use, function calling, multi-agent workflows, agent evaluation and reliability; LangGraph, LlamaIndex, Google ADK, MCP.
+
+\item \textbf{Cloud \& Infrastructure}: Production AI platforms on GCP/AWS/Kubernetes; Vertex AI, GKE, SageMaker, EKS/ECS; distributed data pipelines, observability, reliability, and secure deployment.
+
+\end{itemize}
+
+\end{rSection}
+
+
+
+% ============================================================
+
+\begin{rSection}{Work Experience}
+
+	\begin{rSubsection}{Two Platforms}{\textit{2021 -- 2025}}{\textbf{Founder \& Chief Technology Officer}}{Campbell, CA}
+\item[] Founded Two Platforms - AI infrastructure \& applications startup (\$20M seed from Jio Platforms \& Naver Corp.) focused on multilingual LLMs, multimodal/voice AI, and enterprise applications for the APAC market. Scaled team of 20+ engineers across ML, platform and product.
+\begin{itemize}
+
+%\item Built SUTRA, multilingual LLM platform (50+ languages) with full lifecycle ownership: data, Transformer/MoE training, RLHF,  alignment, and production deployment. Built and maintained GPU cluster of 200+ GPUs for in-house training \& model serving.
+%\item Developed enterprise AI stack spanning semantic search (RAG), vector embeddings, and secure enterprise deployment across cloud, VPC, and on-prem environments, contributing to \$10M+ ARR.
+% \item Deployed multilingual multimodal search on Jio AI Cloud, serving 400M+ users across text, image, audio, video, and document inputs.
+% %\item Built real-time voice AI and avatar systems, integrating LLM, TTS, and voice-to-voice pipelines with low-latency streaming (sub-100ms).
+%\item Developed consumer AI applications like Zappy (AI chat application with 20M+ conversations) and AutoCameo (personalized video messaging platform) for national scale launch in India in partnership with Jio Platforms (IPL 2023).
+
+\item Built SUTRA, a multilingual AI platform spanning foundation models, semantic search, voice AI. Owned the full lifecycle from data and Transformer/MoE training to RLHF, evaluation, and deployment; operated 200+ GPU infrastructure for training and serving.
+
+\item Partnered with strategic customers including Jio Platforms to design and deploy AI applications for search, customer support, and workflow automation across cloud, VPC, and on-prem environments, contributing to \$10M+ ARR.
+
+\item Developed enterprise AI stack including RAG, vector search, agentic workflows, and voice agents, enabling rapid deployment of production AI systems across telecom, finance, healthcare, and retail.
+
+\item Deployed multilingual multimodal AI systems serving 400M+ users across text, image, audio, video, and documents. Built consumer products including Zappy (AI chat, 20M+ conversations) and AutoCameo (personalized video messaging), launched nationally in partnership with Jio Platforms.
+
+
+\end{itemize}
+	\end{rSubsection}
+
+
+
+\begin{rSubsection}{Samsung Technology \& Advanced Research (STAR) Labs}{Sept. 2020 -- June 2021}{\textbf{Chief Technology Officer}}{Mountain View, CA}
+\item[]As CTO of STAR Labs, led NEON, a real-time generative digital-human platform, from research prototype to commercialization; later integrated into Samsung Electronics at a \$50M+ internal valuation. Built and led a 40+ person multidisciplinary team across AI research, graphics, platform, and product, managing \$30M+ R\&D funding over 2 years.
+
+\begin{itemize}
+\item Conceived and led NEON, an interactive avatar platform enabling temporally stable 4K photorealistic digital humans with sub-100ms latency, launched at CES 2020.
+\item Designed the core real-time multimodal generative AI stack, combining motion/audio-conditioned generation, identity personalization, neural rendering, optimized GPU inference, and streaming media delivery.
+\item Built production ML/media platform spanning data pipelines, model training/evaluation, low-latency serving, observability, SDKs, cloud deployment, and enterprise integration.
+\item Drove commercialization through NEON View, NEON Frame, and NEON Studio across interactive customer service, digital displays, mobile/web avatars, and enterprise media/content generation.
+\item Led APAC enterprise partnerships across media, finance, retail, and telecom; supported deployments and pilots with Samsung business units and external partners.
+\item Generated 10+ patents across core models, data pipelines, and system architecture; led research collaborations with MIT, Stanford, and the University of Washington.
+\end{itemize}
+\end{rSubsection}
+
+
+	
+\begin{rSubsection}{Samsung Research America}{Nov 2015 -- Aug 2019}{\textbf{Director / Principal Engineer / Staff Engineer}}{Mountain View, CA}
+
+  \item Led architecture and scaling of on-device AI and perception platforms deployed across 100M+ Samsung Galaxy devices. Built and managed a team of 60+ engineers and researchers (20+ PhDs) with a \$15M+/year annual R\&D budget.
+
+  \item[] \textbf{Bixby Vision \& On-Device AI}
+  \begin{itemize}
+  
+\item Built and scaled Bixby Vision, on-device AI deployed across 100M+ Galaxy devices, enabling visual search, translation, shopping, and scene understanding.
+ \item Built Samsung’s on-device AI platform from first principles, enabling ML deployment across Android, Tizen, Galaxy devices, Smart TVs, digital displays, and XR systems under strict latency, power, and memory constraints.
+ \item Designed real-time camera and perception pipelines, processing live video frames for object detection, OCR, scene understanding, and AR experiences with low-latency on-device inference.
+ \item Built platform SDK and APIs (Vision, AR, rendering) enabling partner applications and services to integrate with Bixby Vision, creating an extensible ecosystem.
+ \item Led hardware–software co-design with Samsung Semiconductor (Exynos NPU), Qualcomm (Snapdragon), and Google (Android), optimizing inference via quantization, acceleration, and cross-platform deployment.
+ \item Drove transition from applied research to production systems, defining architecture, evaluation, and deployment strategies for large-scale commercialization.
+
+%• Developed large-scale on-device computer vision models (object recognition, OCR, scene understanding) optimized via quantization, compression, and heterogeneous execution (CPU/GPU/DSP/NPU).
+%• Built 3D perception and SLAM systems for AR/XR, integrating visual, depth, and inertial sensing for real-time spatial mapping.
+
+\end{itemize}
+
+  \item[] \textbf{AR \& Mixed Reality Platforms}
+  \begin{itemize}
+\item Led AR and Mixed Reality platform initiatives in collaboration with Microsoft (HoloLens) and Google (Android / ARCore), shaping hardware–software integration and platform architecture.
+\item Directed and contributed hands-on to Samsung’s in-house AR/MR stack, building SLAM and sensor fusion systems using RGB, event-based vision (DVS), IMU, and depth sensors for real-time spatial mapping.
+\item Developed low-latency, power-efficient perception and rendering pipelines for XR, including patented approaches for event-driven vision and sensor fusion. \\ \\ \\
+\end{itemize}
+\end{rSubsection}
+
+	 
+%\begin{rSubsection}{Solariat Inc. (Acquired by Genesys Inc.)}{Dec 2012 -- Aug 2013}{Machine Learning Scientist}{San Carlos, CA}
+%    \item Built production NLP pipelines for real-time sentiment classification and trend detection on Twitter scale streaming data ($>$ 10K events/sec); implemented incremental and active learning to continuously improve classifier accuracy. 
+%\end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Research Experience}
+%------------------------------------------------
+	\begin{rSubsection}
+	{\textbf{SRI International}} {June 2014 -- September 2014} {PhD Intern} {Princeton, NJ}
+		\item Built algorithms to automatically summarize and reconstruct sequential storylines from large-scale photo collections, modeling temporal structure across millions of images \textbf{DARPA ALADDIN}.
+	\end{rSubsection}
+
+	\begin{rSubsection}
+	{\textbf{IDIAP Research Institute (EPFL)}}	{October 2013 -- January 2014}	{Visiting Student (with Prof. Sebastien Marcel)} 	{Switzerland}
+		\item Researched continual learning and online model adaptation for large-scale biometric recognition under distribution shift (EU/NSF Open Vision project).
+	\end{rSubsection}
+
+	\begin{rSubsection}
+	{\textbf{MIT Media Lab}}	{August 2010 -- July 2011}	{Research Scientist (with Prof. Ramesh Raskar)}	{Cambridge, MA}
+		\item Developed VisionBlocks, a social computer vision platform (Google App Engine Award), and conducted image super-resolution research for DARPA ARGUS-IS.
+
+	\end{rSubsection}
+
+	\begin{rSubsection}
+	{\textbf{MIT McGovern Institute \& Dept. of Brain \& Cognitive Sciences}} 	{July 2009 -- July 2010} 	{Visiting Student \& Research Scientist (with Prof. James DiCarlo)} 	{Cambridge, MA}
+		\item Developed deep learning and biologically inspired vision models for object recognition and pedestrian detection. Research supported by \textbf{DARPA NeoVision}. 
+	\end{rSubsection}
+
+\end{rSection}
+
+% ============================================================
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Publications \& Patents}
+Selected list of publications (cited 3800+ times)  is listed below: 
+	\begin{enumerate}
+	 \item A. Bendale \textit{et.al.} ``SUTRA: Scalable Multilingual Language Model Architecture'' 2014 (\textit{arxiv 2405.06694})
+	  \item A. Bendale, T. Boult ``Towards Open Set Deep Network'' CVPR 2016 (oral, 2.5K+ citations)	
+	  %\item A. Bendale, T. Boult ``What do you do when you know that you don't know?" Biometrics Workshop, CVPR 2016
+	  \item A. Bendale, T. Boult ``Towards Open World Recognition" CVPR 2015 (oral, 900+ citations)
+   	 \item A. Bendale, T. Boult ``Reliable Posterior Probab. Estimation for Face Recognition" Biometrics W, CVPR 2014 
+   	 \item A. Bendale, \textit{et.al.}, R. Raskar ``VisionBlocks: Social Computer Vision Platform" SocialCom 2011
+	\end{enumerate}
+	
+Selected list of Patents (from 30+):  %\textit{Generating digital avatar} (\href{https://patents.google.com/patent/US11544886B2}{US 11,544,886}, 2023),
+%\textit{Real-time interactive digital agents} (US App. 17/686,201, 2023),
+%\textit{Interactive systems for digital humans} (US App. 17/571,106, 2023),
+%\textit{CMOS-assisted inside-out DVS tracking} (\href{https://patents.google.com/patent/US11381741B2}{US 11,381,741}, 2023),
+%\textit{Emotion-aware reactive interfaces} (\href{https://patents.google.com/patent/US11334376B2}{US 11,334,376}, 2023),
+%\textit{Semi-dense depth estimation with DVS} (US 11,143,879, 2021),
+%\textit{Vision intelligence management} (US 10,902,262, 2021),
+%\textit{Semantic mapping for low-power AR} (US 10,812,711, 2020), and
+%\textit{Camera pose estimation using DVS} (US 10,529,074, 2020).
+
+\begin{enumerate}
+%\item Communicative light assembly system for digital humans (\href{https://patents.google.com/patent/US12217341B2/en} US12217341B2)
+\item  Generating digital avatar (\href{https://patents.google.com/patent/US11544886B2}{US 11544886}, 2023)
+\item Real-time interactive digital agents (\href{https://patents.google.com/patent/US20230281466A1/en} {US  17686201}, 2023) 
+%\item Interactive systems for digital humans (US App. 17/571,106, 2023),
+\item CMOS-assisted inside-out DVS tracking (\href{https://patents.google.com/patent/US11381741B2}{US 11381741}, 2023)
+%\item Emotion-aware reactive interfaces (\href{https://patents.google.com/patent/US11334376B2}{US 11,334,376}, 2023),
+\item Semi-dense depth estimation with DVS (\href{https://patentimages.storage.googleapis.com/77/86/a3/d3c88f2dff2b7d/US11143879.pdf} {US 11143879}, 2021)
+%\item Vision intelligence management (US 10,902,262, 2021),
+\item Semantic mapping for low-power AR ( \href{https://patentimages.storage.googleapis.com/af/72/51/59c6812bbb8e7d/US10812711.pdf} {US 10812711}, 2020), 
+%\item Camera pose estimation using DVS (US 10,529,074, 2020).
+\end{enumerate}
+
+Full list is available via \href{https://scholar.google.com/citations?user=C4QRs3AAAAAJ&hl=en&oi=ao}{Google Scholar}.
+
+\end{rSection}
+
+%%----------------------------------------------------------------------------------------
+%%	PATENTS
+%%----------------------------------------------------------------------------------------
+%
+%\begin{rSection}{Patents}
+%\textit{Inventor on 30+ granted and pending patents spanning on-device AI, AR/VR, SLAM, novel sensors, digital humans, and computer vision. Full patent list available via }
+%\href{https://scholar.google.com/citations?user=C4QRs3AAAAAJ&hl=en&oi=ao}{Google Scholar}.
+%
+%\begin{enumerate}
+%\item ``Generating digital avatar'' 2023. US Patent 11,544,886
+%\item ``Autonomous generation, deployment, and personalization of real-time interactive digital agents'' 2023. US Patent App. 17/686,201
+%\item ``Interactive system application for digital humans'' 2023. US Patent App. 17/571,106
+%\item ``CMOS-assisted inside-out dynamic vision sensor tracking for low power mobile platforms'' 2023. US Patent 11,381,741
+%\item ``Emotion-aware reactive interfaces'' 2023. US Patent 11,334,376
+%\item ``Semi-dense depth estimation from a dynamic vision sensor (DVS) stereo pair and a pulsed speckle pattern projector'' 2021. US Patent 11,143,879
+%\item ``Vision intelligence management for electronic devices'' 2021. US Patent 10,902,262
+%\item ``Semantic mapping for low-power augmented reality using dynamic vision sensor'' 2020. US Patent 10,812,711
+%\item ``Camera pose and plane estimation using active markers and a dynamic vision sensor'' 2020. US Patent 10,529,074
+%\end{enumerate}
+%
+%\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+	
+	\textbf{University of Colorado} \hfill \textit{2011 -- 2015} \\ 
+	Ph.D. in Computer Science (Dissertation: Open World Recognition) \\
+	Advisor: Prof. Terrance Boult \\
+	\textbf{University of Colorado} \hfill \textit{2007 -- 2009} \\ 
+	M.S. in Computer Science \\
+	\textbf{University of Pune} \hfill \textit{2003 -- 2007} \\ 
+	B.E. in Electronics and Telecommunications 
+	
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%	HONORS & AWARDS
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Honors \& Awards (Selected)}
+%
+%	\begin{enumerate}
+%	\item CVPR 2015 Doctoral Consortium Award (one of 35 top PhD students in Computer Vision)
+%	\item IEEE BTAS 2015 Doctoral Consortium Award  (one of 10 top PhD students in Biometrics)
+%	\item NSF Data Science 2015 Invite (one of top 100 PhD students in STEM)
+%	\item NVIDIA 2013 CUDA Teaching Center of Excellence for University of Colorado
+%	\item Google App Award 2011 for Vision Blocks project at MIT Media Lab
+%	\end{enumerate}
+%
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Technical Skills \& Activities}
+%
+%	\begin{tabular}{@{} >{\bfseries}l @{\hspace{6ex}} l @{}}
+%		Reviewing & CVPR, ICCV, NeurIPS, ICLR, WACV, IJCB, IEEE Trans. Affective Comp., NeuroComputing, IJCV \\
+%		Teaching &  CS2060 Programming with C,  CS4440/5440 Big Data  \\
+%		Languages & C, C++, Python, Swift, Shell, CUDA, Objective C etc. \\
+%		Cloud Platforms & AWS, GCP, Azure (Cloud Deployment, High Performance Computing etc.) \\
+%		Research Interests & CV, ML, Generative AI, LLMs, Image / Video Generation, Neural Rendering, SLAM, On-Device AI  \\
+%		
+%	\end{tabular}
+%
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Section Name}
+
+	%Section content\ldots
+
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
