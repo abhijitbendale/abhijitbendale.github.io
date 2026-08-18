@@ -450,15 +450,15 @@
       .right-photo {
         float: none;
         display: block;
-        margin: 0 0 20px auto;
+        margin: 0 0 20px 0;
         width: 140px;
       }
       h1 {
-        text-align: right;
+        text-align: left;
         font-size: 24px;
       }
       .tabs {
-        justify-content: flex-end;
+        justify-content: flex-start;
       }
       .tab-btn {
         padding: 8px 14px;
@@ -468,8 +468,8 @@
       .patent-item,
       .work-item {
         flex-direction: column;
-        align-items: flex-end;
-        text-align: right;
+        align-items: flex-start;
+        text-align: left;
       }
       .publication-thumbnail,
       .patent-thumbnail,
@@ -500,9 +500,7 @@
     <!-- Navigation tabs - clicking these shows different sections -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="about">About Me</button>
-      <button class="tab-btn" data-tab="experience">Experience</button>
-      <button class="tab-btn" data-tab="publications">Publications</button>
-      <button class="tab-btn" data-tab="patents">Patents</button>
+      <button class="tab-btn" data-tab="publications">Publications &amp; Patents</button>
       <button class="tab-btn" data-tab="media">Projects & Media</button>
     </div>
 
@@ -535,15 +533,31 @@
     function loadContent(tabId) {
       // Update active button styling
       buttons.forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
-      
+
       // Fetch the content from the pages directory
-      fetch(`pages/${tabId}.html`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`Failed to load ${tabId}.html`);
-          }
-          return response.text();
-        })
+      const contentPromise = tabId === "publications"
+        ? Promise.all([
+            fetch("pages/publications.html").then(response => {
+              if (!response.ok) {
+                throw new Error("Failed to load publications.html");
+              }
+              return response.text();
+            }),
+            fetch("pages/patents.html").then(response => {
+              if (!response.ok) {
+                throw new Error("Failed to load patents.html");
+              }
+              return response.text();
+            })
+          ]).then(([publicationsHtml, patentsHtml]) => `${publicationsHtml}\n${patentsHtml}`)
+        : fetch(`pages/${tabId}.html`).then(response => {
+            if (!response.ok) {
+              throw new Error(`Failed to load ${tabId}.html`);
+            }
+            return response.text();
+          });
+
+      contentPromise
         .then(html => {
           // Insert the HTML content into the container
           contentContainer.innerHTML = html;
@@ -567,7 +581,12 @@
     });
 
     // When page loads, load the tab from the URL hash or default to 'about'
-    const initialTab = (location.hash || "#about").slice(1);
+    const validTabs = new Set(["about", "publications", "media"]);
+    const legacyTabMap = { patents: "publications", experience: "about" };
+    const hashTab = (location.hash || "#about").slice(1);
+    const initialTab = validTabs.has(hashTab)
+      ? hashTab
+      : (legacyTabMap[hashTab] || "about");
     // Use setTimeout to ensure page layout is complete before loading
     setTimeout(() => loadContent(initialTab), 100);
 
