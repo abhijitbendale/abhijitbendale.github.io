@@ -510,8 +510,8 @@
     <!-- Navigation tabs - clicking these shows different sections -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="about">About Me</button>
-      <button class="tab-btn" data-tab="publications">Publications</button>
-      <button class="tab-btn" data-tab="media">Projects & Media</button>
+      <button class="tab-btn" data-tab="media">Projects / Media</button>
+      <button class="tab-btn" data-tab="publications">Patents / Publications</button>
     </div>
 
     <!-- DYNAMIC CONTENT CONTAINER -->
@@ -538,6 +538,289 @@
     // Get all tab buttons and content container
     const buttons = document.querySelectorAll(".tab-btn");
     const contentContainer = document.getElementById("content");
+    const MEDIA_MANIFEST_PATH = "assets/projects/projects-index.md";
+    const MEDIA_BASE_PATH = "assets/projects/";
+    const mediaState = { entries: [] };
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function projectPath(path) {
+      if (!path) return "";
+      const normalized = path.trim();
+      if (/^(https?:)?\/\//i.test(normalized) || normalized.startsWith("/")) return normalized;
+      if (normalized.startsWith("assets/")) return normalized;
+      return `${MEDIA_BASE_PATH}${normalized.replace(/^\.\//, "")}`;
+    }
+
+    function parseManifest(markdownText) {
+      return markdownText
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line.startsWith("- "))
+        .map(line => line.slice(2).trim())
+        .filter(line => line.endsWith(".md"));
+    }
+
+    function parseProjectMetadata(markdownText) {
+      const data = {};
+      const lines = markdownText.split("\n");
+      let start = 0;
+
+      // Supports optional YAML frontmatter and simple key:value format.
+      if (lines[0] && lines[0].trim() === "---") {
+        const end = lines.findIndex((line, index) => index > 0 && line.trim() === "---");
+        if (end > 0) {
+          const fmLines = lines.slice(1, end);
+          fmLines.forEach(line => {
+            const parts = line.split(":");
+            if (parts.length < 2) return;
+            const key = parts.shift().trim().toLowerCase().replace(/^#+\s*/, "");
+            const value = parts.join(":").trim();
+            data[key] = value;
+          });
+          start = end + 1;
+        }
+      }
+
+      if (Object.keys(data).length === 0) {
+        lines.slice(start).forEach(line => {
+          const parts = line.split(":");
+          if (parts.length < 2) return;
+          const key = parts.shift().trim().toLowerCase().replace(/^#+\s*/, "");
+          const value = parts.join(":").trim();
+          if (value) data[key] = value;
+        });
+      }
+
+      return {
+        title: data.title || "Untitled",
+        date: data.date || "",
+        group: data.group || "",
+        image: data["title image"] || data.image || "",
+        excerpt: data["representative text"] || data.excerpt || "",
+        readMore: data["read more"] || ""
+      };
+    }
+
+    function parseProjectDate(dateValue) {
+      if (!dateValue) return Number.NEGATIVE_INFINITY;
+      const ts = Date.parse(dateValue);
+      return Number.isNaN(ts) ? Number.NEGATIVE_INFINITY : ts;
+    }
+
+    function formatInlineMarkdown(text) {
+      let html = escapeHtml(text);
+      html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+      html = html.replace(/\[(.+?)\]\((.+?)\)/g, (_match, label, href) => {
+        const url = projectPath(href.trim());
+        return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+      });
+      return html;
+    }
+
+    function markdownToHtml(markdownText) {
+      const lines = markdownText.split("\n");
+      const out = [];
+      let inList = false;
+
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+
+        if (!line) {
+          if (inList) {
+            out.push("</ul>");
+            inList = false;
+          }
+          continue;
+        }
+
+        if (line.startsWith("## ")) {
+          if (inList) {
+            out.push("</ul>");
+            inList = false;
+          }
+          out.push(`<h2>${formatInlineMarkdown(line.slice(3))}</h2>`);
+          continue;
+        }
+
+        if (line.startsWith("### ")) {
+          if (inList) {
+            out.push("</ul>");
+            inList = false;
+          }
+          out.push(`<h3>${formatInlineMarkdown(line.slice(4))}</h3>`);
+          continue;
+        }
+
+        if (line.startsWith("# ")) {
+          if (inList) {
+            out.push("</ul>");
+            inList = false;
+          }
+          out.push(`<h1>${formatInlineMarkdown(line.slice(2))}</h1>`);
+          continue;
+        }
+
+        if (line.startsWith("- ")) {
+          if (!inList) {
+            out.push("<ul>");
+            inList = true;
+          }
+          out.push(`<li>${formatInlineMarkdown(line.slice(2))}</li>`);
+          continue;
+        }
+
+        const imageMatch = line.match(/^!\[.*?\]\((.+?)\)$/);
+        if (imageMatch) {
+          if (inList) {
+            out.push("</ul>");
+            inList = false;
+          }
+          out.push(`<img class="clickable-thumb" src="${escapeHtml(projectPath(imageMatch[1].trim()))}" alt="Blog image" loading="lazy">`);
+          continue;
+        }
+
+        if (inList) {
+          out.push("</ul>");
+          inList = false;
+        }
+        out.push(`<p>${formatInlineMarkdown(line)}</p>`);
+      }
+
+      if (inList) out.push("</ul>");
+      return out.join("\n");
+    }
+
+    async function fetchText(path) {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`Failed to load ${path}`);
+      return response.text();
+    }
+
+    function renderMediaCards(entries) {
+      const root = contentContainer.querySelector("[data-media-root]");
+      if (!root) return;
+
+      const groupedEntries = new Map();
+      entries.forEach(entry => {
+        const groupName = (entry.group || "Other Projects").trim();
+        if (!groupedEntries.has(groupName)) groupedEntries.set(groupName, []);
+        groupedEntries.get(groupName).push(entry);
+      });
+
+      const sectionsHtml = Array.from(groupedEntries.entries()).map(([groupName, groupItems]) => {
+        const cardsHtml = groupItems.map(entry => {
+        const teaserSrc = projectPath(entry.image);
+        const isInternalPost = entry.readMore.endsWith(".md");
+        const readMoreHtml = isInternalPost
+          ? `<button class="media-card__readmore" data-post="${encodeURIComponent(entry.readMore)}">[ READ MORE ]</button>`
+          : `<a class="media-card__readmore" href="${escapeHtml(entry.readMore)}" target="_blank" rel="noopener noreferrer">[ READ MORE ]</a>`;
+
+        return `
+          <article class="media-card">
+            <div class="media-card__teaser">
+              <img class="clickable-thumb" src="${escapeHtml(teaserSrc)}" alt="${escapeHtml(entry.title)}" loading="lazy">
+            </div>
+            <div class="media-card__content">
+              <h3 class="media-card__title">${escapeHtml(entry.title)}</h3>
+              <p class="media-card__excerpt">${escapeHtml(entry.excerpt)}</p>
+              ${readMoreHtml}
+            </div>
+          </article>
+        `;
+      }).join("\n");
+
+        return `
+          <section class="media-group">
+            <h3 class="media-group-title">${escapeHtml(groupName)}</h3>
+            <div class="media-list">${cardsHtml}</div>
+          </section>
+        `;
+      }).join("\n");
+
+      root.innerHTML = sectionsHtml;
+
+      root.querySelectorAll("[data-post]").forEach(button => {
+        button.addEventListener("click", async () => {
+          const postFile = decodeURIComponent(button.getAttribute("data-post"));
+          await renderMediaPost(postFile);
+        });
+      });
+      setupImageLightbox();
+    }
+
+    async function renderMediaPost(postFile) {
+      const root = contentContainer.querySelector("[data-media-root]");
+      if (!root) return;
+      root.innerHTML = `<p class="media-status">Loading post...</p>`;
+
+      try {
+        const markdown = await fetchText(projectPath(postFile));
+        const postHtml = markdownToHtml(markdown);
+        root.innerHTML = `
+          <button class="media-back-btn" type="button">[ BACK ]</button>
+          <article class="media-post">${postHtml}</article>
+        `;
+        root.querySelector(".media-back-btn").addEventListener("click", () => {
+          renderMediaCards(mediaState.entries);
+        });
+        setupImageLightbox();
+      } catch (error) {
+        console.error(error);
+        root.innerHTML = `<p class="media-status">Failed to load this post.</p>`;
+      }
+    }
+
+    async function initializeMediaPage() {
+      const root = contentContainer.querySelector("[data-media-root]");
+      if (!root) return;
+
+      root.innerHTML = `<p class="media-status">Loading projects...</p>`;
+
+      try {
+        const manifestText = await fetchText(MEDIA_MANIFEST_PATH);
+        const files = parseManifest(manifestText);
+        const entries = [];
+
+        for (const file of files) {
+          try {
+            const metadataText = await fetchText(projectPath(file));
+            const metadata = parseProjectMetadata(metadataText);
+            if (!metadata.title || !metadata.image || !metadata.excerpt || !metadata.readMore) {
+              console.warn(`Skipping incomplete project metadata: ${file}`);
+              continue;
+            }
+            entries.push({ ...metadata, __manifestOrder: entries.length });
+          } catch (error) {
+            console.warn(`Skipping unreadable project metadata file: ${file}`, error);
+          }
+        }
+
+        // Newest projects first. If date parsing fails or dates tie, keep manifest order.
+        entries.sort((a, b) => {
+          const dateDiff = parseProjectDate(b.date) - parseProjectDate(a.date);
+          if (dateDiff !== 0) return dateDiff;
+          return a.__manifestOrder - b.__manifestOrder;
+        });
+
+        mediaState.entries = entries;
+        if (entries.length === 0) {
+          root.innerHTML = `<p class="media-status">No project cards available yet.</p>`;
+          return;
+        }
+        renderMediaCards(entries);
+      } catch (error) {
+        console.error(error);
+        root.innerHTML = `<p class="media-status">Unable to load project cards. Please try again.</p>`;
+      }
+    }
 
     // Function to load content from a specific page
     function loadContent(tabId) {
@@ -571,8 +854,9 @@
         .then(html => {
           // Insert the HTML content into the container
           contentContainer.innerHTML = html;
-          // Scroll to top of content
-          contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (tabId === "media") {
+            initializeMediaPage();
+          }
           // Initialize image lightbox for loaded content
           setupImageLightbox();
         })
@@ -607,6 +891,19 @@
       const modalCaption = document.getElementById('image-modal-caption');
       const closeBtn = modal.querySelector('.image-modal-close');
 
+      function hideModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+      }
+
+      if (modal.dataset.lightboxInitialized !== 'true') {
+        closeBtn.addEventListener('click', hideModal);
+        modal.querySelector('[data-role="backdrop"]').addEventListener('click', hideModal);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideModal(); });
+        modal.dataset.lightboxInitialized = 'true';
+      }
+
       function showModal(src, alt) {
         modalImg.src = src;
         modalImg.alt = alt || '';
@@ -615,24 +912,14 @@
         modal.setAttribute('aria-hidden', 'false');
       }
 
-      function hideModal() {
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        modalImg.src = '';
-      }
-
-      // Close handlers
-      closeBtn.addEventListener('click', hideModal);
-      modal.querySelector('[data-role="backdrop"]').addEventListener('click', hideModal);
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideModal(); });
-
-      // Attach to all clickable thumbnails inside the content container
       const imgs = contentContainer.querySelectorAll('.clickable-thumb');
       imgs.forEach(img => {
+        if (img.dataset.lightboxBound === 'true') return;
         img.style.cursor = 'zoom-in';
-        img.addEventListener('click', (e) => {
+        img.addEventListener('click', () => {
           showModal(img.src, img.alt || '');
         });
+        img.dataset.lightboxBound = 'true';
       });
     }
   </script>

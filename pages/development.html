@@ -1,0 +1,111 @@
+<h2>Code / Dev</h2>
+
+<p>Selected coding and development activity across open-source tooling, research releases, and hands-on AI engineering systems.</p>
+
+<div class="dev-timeline">
+  <article class="dev-entry">
+    <div class="dev-entry__date">2025</div>
+    <div class="dev-entry__content">
+      <h3 class="dev-entry__title"><a href="https://github.com/abhijitbendale/sona-lab">Sona Lab</a></h3>
+      <p class="dev-entry__desc">Open-source neural speech synthesis lab for pre-training, SFT, and RLHF on SpeechLMs and audio codecs. Built to support reproducible experimentation across local machines and multi-GPU cloud environments with setup scripts, smoke tests, and training runbooks.</p>
+    </div>
+  </article>
+
+  <article class="dev-entry">
+    <div class="dev-entry__date">2016</div>
+    <div class="dev-entry__content">
+      <h3 class="dev-entry__title"><a href="https://github.com/abhijitbendale/OSDN">OSDN</a></h3>
+      <p class="dev-entry__desc">Code and data release for <em>Towards Open Set Deep Networks</em> (CVPR 2016), including OpenMax, LibMR-based Weibull fitting, and the preprocessing pipeline used for open-set recognition experiments on ImageNet-era vision models.</p>
+    </div>
+  </article>
+</div>
+
+<style>
+.dev-timeline {
+  position: relative;
+  margin-top: 20px;
+}
+
+.dev-timeline::before {
+  content: "";
+  position: absolute;
+  left: 84px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #e1e1e1;
+}
+
+.dev-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 28px;
+  padding: 0 0 28px;
+}
+
+.dev-entry:last-child {
+  padding-bottom: 0;
+}
+
+.dev-entry__date {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+  padding-top: 2px;
+}
+
+.dev-entry__date::after {
+  content: "";
+  position: absolute;
+  right: -17px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0050e7;
+  box-shadow: 0 0 0 4px #eef4ff;
+}
+
+.dev-entry__content {
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 18px 20px;
+}
+
+.dev-entry__title {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.dev-entry__desc {
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .dev-timeline::before {
+    left: 16px;
+  }
+
+  .dev-entry {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-left: 34px;
+  }
+
+  .dev-entry__date {
+    font-size: 0.9rem;
+  }
+
+  .dev-entry__date::after {
+    left: -22px;
+    right: auto;
+  }
+}
+</style>
