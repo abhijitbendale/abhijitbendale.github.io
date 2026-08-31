@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Introducing ChatSUTRA",
+    "date": "March 11, 2025",
+    "group": "Two Platforms",
+    "image": "blog-images/chatsutra-title.avif",
+    "excerpt": "ChatSUTRA is multilingual AI assistant, powered by SUTRA models, and serving 50+ languages for natural conversations and advanced AI features on iOS, Android and Web. Within short time, it crossed 1M+ users worldwide.",
+    "readMore": "https://www.two.ai/blog/announcing-chatsutra",
+    "__manifestOrder": 0
+  },
+  {
+    "title": "Two Platform powers AI Search on Jio AI Cloud",
+    "date": "April 15, 2025",
+    "group": "Two Platforms",
+    "image": "blog-images/jioai-cloud.webp",
+    "excerpt": "In May'25, our multimodal AI stack was deployed on Jio AI Cloud serving their 400M+ user base. Handled massive scale processing of petabytes (400M users, 5K average files/user) with custom text-image models and vector indexes.",
+    "readMore": "https://www.jioaicloud.com/",
+    "__manifestOrder": 1
+  },
+  {
+    "title": "SUTRA Avatar: Realtime AI Video Calls",
+    "date": "August 7, 2024",
+    "group": "Two Platforms",
+    "image": "blog-images/sutra-avatar-title.webp",
+    "excerpt": "SUTRA Avatar is a video foundation model service that enabled the creation of lifelike, customizable digital avatars with real-time video calling capabilities at scale on mobile devices. It is designed for enterprise applications across customer service, education, entertainment etc.",
+    "readMore": "https://www.two.ai/blog/announcing-sutra-avatar",
+    "__manifestOrder": 2
+  },
+  {
+    "title": "Understanding SUTRA's Multilingual Tokenizer",
+    "date": "May 23, 2024",
+    "group": "Two Platforms",
+    "image": "blog-images/multilingualtokenizer-title.avif",
+    "excerpt": "We designed and trained a multilingual tokenizer for SUTRA to reduce the computational cost of LLMs while efficiently supporting diverse languages with a balanced vocabulary. The tokenizer improved representation efficiency and model performance, particularly for non-English languages, making multilingual LLMs more practical and cost-effective to train and serve.",
+    "readMore": "https://www.two.ai/blog/understanding-sutra-s-multilingual-tokenizer",
+    "__manifestOrder": 3
+  },
+  {
+    "title": "Introducing SUTRA: The Next Frontier in Multilingual AI",
+    "date": "April 20, 2024",
+    "group": "Two Platforms",
+    "image": "blog-images/sutra-title.png",
+    "excerpt": "A cutting-edge multilingual AI architecture designed to deliver exceptional performance across 50+ languages. By separating concept learning from language learning, SUTRA enhances scalability, efficiency, and multilingual capabilities, setting a new standard for generative AI models.",
+    "readMore": "https://www.two.ai/blog/introducing-sutra",
+    "__manifestOrder": 4
+  },
+  {
+    "title": "Two Platforms powers Jio VIP Box at IPL 2023",
+    "date": "June 13, 2023",
+    "group": "Two Platforms",
+    "image": "blog-images/ipl2023-title.avif",
+    "excerpt": "During IPL 2023, AutoCameo delivered over 300,000 personalized video messages to fans through the Jio VIP Box experience. It handled high request volumes efficiently, generating more than 2 million views and strong social media engagement.",
+    "readMore": "20230613-twoai-ipl2023-blog.md",
+    "__manifestOrder": 5
+  },
+  {
+    "title": "$20M seed round on 2/22/22",
+    "date": "02 February 2022",
+    "group": "Two Platforms",
+    "image": "blog-images/fundraise-title.avif",
+    "excerpt": "Our team is exhilarated to have raised a funding round of $20M with investments from Jio and NAVER.",
+    "readMore": "https://www.two.ai/blog/announcing-our-20m-seed-round",
+    "__manifestOrder": 6
+  },
+  {
+    "title": "NEON: Building Artificial Humans at Samsung STAR Labs",
+    "date": "Feb 15, 2021",
+    "group": "Samsung (STAR) Labs",
+    "image": "blog-images/neon-frame-teaser.png",
+    "excerpt": "NEON is an digital human generation platform developed at Samsung STAR Labs. At its core was CORE R3 — Reality, Realtime, Responsive, which focused on generating photorealistic digital humans and their behavior in real time, while SPECTRA was envisioned as the intelligence layer for learning, memory, emotion, and personalization.",
+    "readMore": "20210215-starlabs-neon-blog.md",
+    "__manifestOrder": 7
+  },
+  {
+    "title": "Samsung STAR Labs and CJ sign MoU",
+    "date": "Oct 29, 2020",
+    "group": "Samsung (STAR) Labs",
+    "image": "blog-images/samsung-cj-mou-title.jpg",
+    "excerpt": "STAR Labs signed a Memorandum of Understanding (MOU) with CJ OliveNetworks on the Oct 23, 2020 to collaborate on the artificial human business. CJ plans to proactively respond to the rapidly evolving media content industry by leveraging NEON; as a first step, the company intends to collaborate with a virtual influencer to create new forms of content.",
+    "readMore": "https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%9D%B8%EA%B3%B5%EC%9D%B8%EA%B0%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%84%A4%EC%98%A8-%EA%B5%AD%EB%82%B4-%ED%8C%8C%ED%8A%B8%EB%84%88",
+    "__manifestOrder": 8
+  },
+  {
+    "title": "On-Device AI for Samsung Galaxy Devices",
+    "date": "10 Oct 2018",
+    "group": "Samsung Research America",
+    "image": "blog-images/samsung-bixbyvision-title.jpg",
+    "excerpt": "Architected Samsung's on-device AI platform (Bixby Vision), which was launched with Galaxy S8, powering 100M+ devices worldwide.",
+    "readMore": "https://www.two.ai/blog/announcing-our-20m-seed-round",
+    "__manifestOrder": 9
+  }
+]

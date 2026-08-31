@@ -11,4 +11,3 @@
 - 20210215-starlabs-neon.md
 - 20201029-starlabs-cj-mou.md
 - 20181010-samsung-bixbyvision.md
-- 20151231-uccs-openworld.md

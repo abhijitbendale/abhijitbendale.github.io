@@ -538,7 +538,7 @@
     // Get all tab buttons and content container
     const buttons = document.querySelectorAll(".tab-btn");
     const contentContainer = document.getElementById("content");
-    const MEDIA_MANIFEST_PATH = "assets/projects/projects-index.md";
+    const PROJECTS_DATA_PATH = "assets/projects/projects-data.json";
     const MEDIA_BASE_PATH = "assets/projects/";
     const mediaState = { entries: [] };
 
@@ -699,7 +699,7 @@
     }
 
     async function fetchText(path) {
-      const response = await fetch(path);
+      const response = await fetch(path, { cache: "no-store" });
       if (!response.ok) throw new Error(`Failed to load ${path}`);
       return response.text();
     }
@@ -785,29 +785,16 @@
       root.innerHTML = `<p class="media-status">Loading projects...</p>`;
 
       try {
-        const manifestText = await fetchText(MEDIA_MANIFEST_PATH);
-        const files = parseManifest(manifestText);
-        const entries = [];
-
-        for (const file of files) {
-          try {
-            const metadataText = await fetchText(projectPath(file));
-            const metadata = parseProjectMetadata(metadataText);
-            if (!metadata.title || !metadata.image || !metadata.excerpt || !metadata.readMore) {
-              console.warn(`Skipping incomplete project metadata: ${file}`);
-              continue;
-            }
-            entries.push({ ...metadata, __manifestOrder: entries.length });
-          } catch (error) {
-            console.warn(`Skipping unreadable project metadata file: ${file}`, error);
-          }
+        const jsonText = await fetchText(PROJECTS_DATA_PATH);
+        const entries = JSON.parse(jsonText);
+        if (!Array.isArray(entries)) {
+          throw new Error("Invalid project data");
         }
 
-        // Newest projects first. If date parsing fails or dates tie, keep manifest order.
         entries.sort((a, b) => {
           const dateDiff = parseProjectDate(b.date) - parseProjectDate(a.date);
           if (dateDiff !== 0) return dateDiff;
-          return a.__manifestOrder - b.__manifestOrder;
+          return (a.__manifestOrder ?? 0) - (b.__manifestOrder ?? 0);
         });
 
         mediaState.entries = entries;
@@ -816,9 +803,47 @@
           return;
         }
         renderMediaCards(entries);
-      } catch (error) {
-        console.error(error);
-        root.innerHTML = `<p class="media-status">Unable to load project cards. Please try again.</p>`;
+      } catch (jsonError) {
+        console.warn("Failed to load project data JSON, falling back to markdown manifest", jsonError);
+
+        try {
+          const manifestText = await fetchText("assets/projects/projects-index.md");
+          const files = parseManifest(manifestText);
+
+          const filePromises = files.map(async (file, index) => {
+            try {
+              const metadataText = await fetchText(projectPath(file));
+              const metadata = parseProjectMetadata(metadataText);
+              if (!metadata.title || !metadata.image || !metadata.excerpt || !metadata.readMore) {
+                console.warn(`Skipping incomplete project metadata: ${file}`);
+                return null;
+              }
+              return { ...metadata, __manifestOrder: index };
+            } catch (error) {
+              console.warn(`Skipping unreadable project metadata file: ${file}`, error);
+              return null;
+            }
+          });
+
+          const settledResults = await Promise.all(filePromises);
+          const entries = settledResults.filter(Boolean);
+
+          entries.sort((a, b) => {
+            const dateDiff = parseProjectDate(b.date) - parseProjectDate(a.date);
+            if (dateDiff !== 0) return dateDiff;
+            return a.__manifestOrder - b.__manifestOrder;
+          });
+
+          mediaState.entries = entries;
+          if (entries.length === 0) {
+            root.innerHTML = `<p class="media-status">No project cards available yet.</p>`;
+            return;
+          }
+          renderMediaCards(entries);
+        } catch (error) {
+          console.error(error);
+          root.innerHTML = `<p class="media-status">Unable to load project cards. Please try again.</p>`;
+        }
       }
     }
 
