@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,10 +31,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then
+          git add assets/projects/projects-data.json
+          if git diff --cached --quiet --exit-code; then
             echo "No generated changes"
           else
-            git add assets/projects/projects-data.json
             git commit -m "Auto-generate project metadata JSON"
-            git push
+            git push origin HEAD:main
           fi
