@@ -1,111 +1,74 @@
-<h2>Code / Dev</h2>
+<h2>Dev / Code</h2>
 
 <p>Selected coding and development activity across open-source tooling, research releases, and hands-on AI engineering systems.</p>
 
-<div class="dev-timeline">
-  <article class="dev-entry">
-    <div class="dev-entry__date">2025</div>
-    <div class="dev-entry__content">
-      <h3 class="dev-entry__title"><a href="https://github.com/abhijitbendale/sona-lab">Sona Lab</a></h3>
-      <p class="dev-entry__desc">Open-source neural speech synthesis lab for pre-training, SFT, and RLHF on SpeechLMs and audio codecs. Built to support reproducible experimentation across local machines and multi-GPU cloud environments with setup scripts, smoke tests, and training runbooks.</p>
-    </div>
+<div class="dev-grid">
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/agent-memory-runtime">agent-memory-runtime</a></h3>
+    <p class="dev-card__desc">A local-first, provider-agnostic persistent memory runtime for AI agents, with SQLite storage, retrieval, policy, context compilation, extraction, and OpenAI, Anthropic, and Ollama adapters.</p>
   </article>
 
-  <article class="dev-entry">
-    <div class="dev-entry__date">2016</div>
-    <div class="dev-entry__content">
-      <h3 class="dev-entry__title"><a href="https://github.com/abhijitbendale/OSDN">OSDN</a></h3>
-      <p class="dev-entry__desc">Code and data release for <em>Towards Open Set Deep Networks</em> (CVPR 2016), including OpenMax, LibMR-based Weibull fitting, and the preprocessing pipeline used for open-set recognition experiments on ImageNet-era vision models.</p>
-    </div>
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/streamsampler">streamsampler</a></h3>
+    <p class="dev-card__desc">Deterministic building blocks for ML data pipelines, covering weighted dataset mixing, checkpoint and resume, distributed sample partitioning, curriculum schedules, and replayable data sources.</p>
+  </article>
+
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/sona-lab">sona-lab</a></h3>
+    <p class="dev-card__desc">Open-source neural speech synthesis lab for pre-training, SFT, and RLHF on SpeechLMs and audio codecs, with reproducible local and multi-GPU workflows.</p>
+  </article>
+
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/OSDN">OSDN</a></h3>
+    <p class="dev-card__desc">Code and data release for <em>Towards Open Set Deep Networks</em> (CVPR 2016), including OpenMax, LibMR-based Weibull fitting, and an open-set recognition preprocessing pipeline.</p>
+  </article>
+
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/OWR">OWR</a></h3>
+    <p class="dev-card__desc">MATLAB implementation of the Nearest Non-Outlier method and open-world recognition protocol from <em>Towards Open World Recognition</em> (CVPR 2015), evaluating open-set and incremental learning on ImageNet features.</p>
+  </article>
+
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/pyphasesym">pyphasesym</a></h3>
+    <p class="dev-card__desc">Python implementation of phase symmetry analysis: a contrast-invariant image measure for detecting lines and blobs using FFT-based filters.</p>
+  </article>
+
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/geo-blur">geo-blur</a></h3>
+    <p class="dev-card__desc">An object-category recognition pipeline using geometric-blur descriptors around SIFT keypoints with nearest-neighbor retrieval and SVM classification.</p>
+  </article>
+
+  <article class="dev-card">
+    <h3 class="dev-card__title"><a href="https://github.com/abhijitbendale/rls-lab">rls-lab</a></h3>
+    <p class="dev-card__desc">Python implementations of linear and nonlinear regularized least squares, validated against Ryan Rifkin's MATLAB reference code with leave-one-out error analysis.</p>
   </article>
 </div>
 
 <style>
-.dev-timeline {
-  position: relative;
-  margin-top: 20px;
-}
-
-.dev-timeline::before {
-  content: "";
-  position: absolute;
-  left: 84px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #e1e1e1;
-}
-
-.dev-entry {
-  position: relative;
+.dev-grid {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 28px;
-  padding: 0 0 28px;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 14px;
 }
 
-.dev-entry:last-child {
-  padding-bottom: 0;
-}
-
-.dev-entry__date {
-  position: relative;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #555;
-  padding-top: 2px;
-}
-
-.dev-entry__date::after {
-  content: "";
-  position: absolute;
-  right: -17px;
-  top: 8px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #0050e7;
-  box-shadow: 0 0 0 4px #eef4ff;
-}
-
-.dev-entry__content {
+.dev-card {
   border: 1px solid #ececec;
-  border-radius: 12px;
+  border-radius: 8px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  padding: 18px 20px;
+  padding: 10px 14px;
 }
 
-.dev-entry__title {
-  margin: 0 0 8px;
-  font-size: 1.12rem;
+.dev-card__title {
+  margin: 0 0 4px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
-.dev-entry__desc {
+.dev-card__desc {
   margin: 0;
   color: #444;
-  line-height: 1.6;
-}
-
-@media (max-width: 700px) {
-  .dev-timeline::before {
-    left: 16px;
-  }
-
-  .dev-entry {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding-left: 34px;
-  }
-
-  .dev-entry__date {
-    font-size: 0.9rem;
-  }
-
-  .dev-entry__date::after {
-    left: -22px;
-    right: auto;
-  }
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 </style>
