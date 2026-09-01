@@ -148,9 +148,9 @@
 
     .publication-item {
       display: flex;
-      gap: 24px;
-      margin-bottom: 25px;
-      padding-bottom: 25px;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
       border-bottom: 1px solid #eee;
       align-items: flex-start;
     }
@@ -163,8 +163,8 @@
 
     .publication-thumbnail {
       flex-shrink: 0;
-      width: 240px;
-      height: 150px;
+      width: 190px;
+      height: 118px;
       background: #f5f5f5;
       border-radius: 10px;
       display: flex;
@@ -197,14 +197,14 @@
     .publication-title {
       font-weight: 600;
       font-size: 16px;
-      margin: 0 0 6px 0;
+      margin: 0 0 4px 0;
       color: #333;
     }
 
     .publication-meta {
       font-size: 14px;
       color: #666;
-      margin: 4px 0;
+      margin: 3px 0;
       line-height: 1.4;
     }
 
@@ -213,18 +213,20 @@
     }
 
     .publication-venue {
+      display: inline;
       color: #666;
       font-style: italic;
     }
 
     .publication-links {
-      margin-top: 8px;
+      display: inline;
+      margin-left: 4px;
       font-size: 14px;
     }
 
     .publication-links a {
       display: inline;
-      margin-right: 12px;
+      margin-right: 2px;
     }
 
     /* Patents list - two-column layout */
@@ -236,9 +238,9 @@
 
     .patent-item {
       display: flex;
-      gap: 24px;
-      margin-bottom: 25px;
-      padding-bottom: 25px;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
       border-bottom: 1px solid #eee;
       align-items: flex-start;
     }
@@ -251,8 +253,8 @@
 
     .patent-thumbnail {
       flex-shrink: 0;
-      width: 240px;
-      height: 150px;
+      width: 210px;
+      height: 130px;
       background: #f5f5f5;
       border-radius: 10px;
       display: flex;
@@ -283,21 +285,21 @@
     .patent-title {
       font-weight: 600;
       font-size: 16px;
-      margin: 0 0 4px 0;
+      margin: 0 0 3px 0;
       color: #333;
     }
 
     .patent-meta {
       font-size: 14px;
       color: #666;
-      margin: 3px 0;
+      margin: 2px 0;
       line-height: 1.4;
     }
 
     .patent-description {
       font-size: 14px;
       color: #555;
-      margin-top: 8px;
+      margin-top: 6px;
       line-height: 1.5;
     }
 
@@ -856,20 +858,20 @@
       // Fetch the content from the pages directory
       const contentPromise = tabId === "publications"
         ? Promise.all([
-            fetch("pages/publications.html").then(response => {
+            fetch("pages/publications.html", { cache: "no-store" }).then(response => {
               if (!response.ok) {
                 throw new Error("Failed to load publications.html");
               }
               return response.text();
             }),
-            fetch("pages/patents.html").then(response => {
+            fetch("pages/patents.html", { cache: "no-store" }).then(response => {
               if (!response.ok) {
                 throw new Error("Failed to load patents.html");
               }
               return response.text();
             })
           ]).then(([publicationsHtml, patentsHtml]) => `${publicationsHtml}\n${patentsHtml}`)
-        : fetch(`pages/${tabId}.html`).then(response => {
+        : fetch(`pages/${tabId}.html`, { cache: "no-store" }).then(response => {
             if (!response.ok) {
               throw new Error(`Failed to load ${tabId}.html`);
             }
