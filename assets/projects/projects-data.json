@@ -81,12 +81,21 @@
     "__manifestOrder": 8
   },
   {
+    "title": "SARAM & Ballie — Physical AI and Robotics",
+    "date": "Jan 05, 2020",
+    "group": "Samsung Research America",
+    "image": "blog-images/ballie-saram.png",
+    "excerpt": "Architected the Physical AI stack for Samsung's SARAM robotic platform and Ballie companion robot, bringing together perception, multimodal interaction, motion planning, and real-time control for robots operating around people.",
+    "readMore": "20200105-samsung-ballie-saram-blog.md",
+    "__manifestOrder": 9
+  },
+  {
     "title": "On-Device AI for Samsung Galaxy Devices",
     "date": "10 Oct 2018",
     "group": "Samsung Research America",
     "image": "blog-images/samsung-bixbyvision-title.jpg",
     "excerpt": "Architected Samsung's on-device AI platform (Bixby Vision), which was launched with Galaxy S8, powering 100M+ devices worldwide.",
     "readMore": "https://www.two.ai/blog/announcing-our-20m-seed-round",
-    "__manifestOrder": 9
+    "__manifestOrder": 10
   }
 ]
