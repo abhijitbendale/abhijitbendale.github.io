@@ -90,12 +90,21 @@
     "__manifestOrder": 9
   },
   {
+    "title": "Spatial Understanding for Mobile and AR/VR",
+    "date": "March 15, 2019",
+    "group": "Samsung Research America",
+    "image": "blog-images/spatial-understanding-map.png",
+    "excerpt": "At Samsung Electronics, we developed a low-power spatial understanding platform spanning hardware, event-based vision, visual-inertial odometry (VIO), depth and geometry estimation, semantic mapping, and persistent world maps",
+    "readMore": "20190315-samsung-spatial-understanding-blog.md",
+    "__manifestOrder": 10
+  },
+  {
     "title": "On-Device AI for Samsung Galaxy Devices",
     "date": "10 Oct 2018",
     "group": "Samsung Research America",
     "image": "blog-images/samsung-bixbyvision-title.jpg",
     "excerpt": "Architected Samsung's on-device AI platform (Bixby Vision), which was launched with Galaxy S8, powering 100M+ devices worldwide.",
     "readMore": "https://www.two.ai/blog/announcing-our-20m-seed-round",
-    "__manifestOrder": 10
+    "__manifestOrder": 11
   }
 ]

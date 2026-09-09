@@ -11,4 +11,5 @@
 - 20210215-starlabs-neon.md
 - 20201029-starlabs-cj-mou.md
 - 20200105-samsung-ballie-saram.md
+- 20190315-samsung-spatial-understanding.md
 - 20181010-samsung-bixbyvision.md
