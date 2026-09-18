@@ -1,4 +1,4 @@
-Title: SARAM & Ballie — Physical AI and Robotics
+Title: SARAM & Ballie: Physical AI and Robotics
 Date: Jan 05, 2020
 #Group: Samsung Research America
 Title Image: blog-images/ballie-saram.png

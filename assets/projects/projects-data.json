@@ -81,7 +81,7 @@
     "__manifestOrder": 8
   },
   {
-    "title": "SARAM & Ballie — Physical AI and Robotics",
+    "title": "SARAM & Ballie: Physical AI and Robotics",
     "date": "Jan 05, 2020",
     "group": "Samsung Research America",
     "image": "blog-images/ballie-saram.png",
@@ -104,7 +104,7 @@
     "group": "Samsung Research America",
     "image": "blog-images/samsung-bixbyvision-title.jpg",
     "excerpt": "Architected Samsung's on-device AI platform (Bixby Vision), which was launched with Galaxy S8, powering 100M+ devices worldwide.",
-    "readMore": "https://www.two.ai/blog/announcing-our-20m-seed-round",
+    "readMore": "https://semiconductor.samsung.com/technologies/processor/on-device-ai/",
     "__manifestOrder": 11
   }
 ]
