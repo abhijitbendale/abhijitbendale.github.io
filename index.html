@@ -746,12 +746,30 @@
       return html;
     }
 
+    function renderVideoEmbed(block) {
+      const iframeMatch = block.match(/<iframe\b[\s\S]*?\bsrc="([^"]+)"[\s\S]*?(?:\btitle="([^"]*)")?[\s\S]*?>\s*<\/iframe>/i);
+      if (!iframeMatch) return "";
+
+      let videoUrl;
+      try {
+        videoUrl = new URL(iframeMatch[1], window.location.href);
+      } catch (_error) {
+        return "";
+      }
+
+      if (!/(^|\.)youtube\.com$|(^|\.)youtube-nocookie\.com$/i.test(videoUrl.hostname)) return "";
+
+      const title = iframeMatch[2] || "Embedded video";
+      return `<div class="media-video"><iframe src="${escapeHtml(videoUrl.href)}" title="${escapeHtml(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`;
+    }
+
     function markdownToHtml(markdownText) {
       const lines = markdownText.split("\n");
       const out = [];
       let inList = false;
 
-      for (const rawLine of lines) {
+      for (let index = 0; index < lines.length; index += 1) {
+        const rawLine = lines[index];
         const line = rawLine.trim();
 
         if (!line) {
@@ -796,6 +814,18 @@
           }
           out.push(`<li>${formatInlineMarkdown(line.slice(2))}</li>`);
           continue;
+        }
+
+        if (line.startsWith("<div") && !inList) {
+          const closingIndex = lines.findIndex((candidate, candidateIndex) => candidateIndex >= index && candidate.trim() === "</div>");
+          if (closingIndex >= index) {
+            const videoHtml = renderVideoEmbed(lines.slice(index, closingIndex + 1).join("\n"));
+            if (videoHtml) {
+              out.push(videoHtml);
+              index = closingIndex;
+              continue;
+            }
+          }
         }
 
         const imageMatch = line.match(/^!\[.*?\]\((.+?)\)$/);
