@@ -72,13 +72,22 @@
     "__manifestOrder": 7
   },
   {
+    "title": "NEON Frame powers Banking Experience for Shinhan Bank",
+    "date": "Jan 15, 2021",
+    "group": "Samsung (STAR) Labs",
+    "image": "blog-images/neon-frame-shinhan.png",
+    "excerpt": "NEON Frame™ showcased at the opening event of Shinhan Bank's newly dedicated innovation center, Expace. Shinhan Bank aims to drive advancements in the financial industry by adopting new digital technologies for transactional banking. NEON Frame™ will enable customer engagement for businesses across many different industries, including financial services, and unlock new forms of customer service.",
+    "readMore": "20210115-starlabs-shinhan-blog.md",
+    "__manifestOrder": 8
+  },
+  {
     "title": "Samsung STAR Labs and CJ sign MoU",
     "date": "Oct 29, 2020",
     "group": "Samsung (STAR) Labs",
     "image": "blog-images/samsung-cj-mou-title.jpg",
     "excerpt": "STAR Labs signed a Memorandum of Understanding (MOU) with CJ OliveNetworks on the Oct 23, 2020 to collaborate on the artificial human business. CJ plans to proactively respond to the rapidly evolving media content industry by leveraging NEON; as a first step, the company intends to collaborate with a virtual influencer to create new forms of content.",
     "readMore": "https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%9D%B8%EA%B3%B5%EC%9D%B8%EA%B0%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%84%A4%EC%98%A8-%EA%B5%AD%EB%82%B4-%ED%8C%8C%ED%8A%B8%EB%84%88",
-    "__manifestOrder": 8
+    "__manifestOrder": 9
   },
   {
     "title": "SARAM & Ballie: Physical AI and Robotics",
@@ -87,7 +96,7 @@
     "image": "blog-images/ballie-saram.png",
     "excerpt": "Architected the Physical AI stack for Samsung's SARAM robotic platform and Ballie companion robot, bringing together perception, multimodal interaction, motion planning, and real-time control for robots operating around people.",
     "readMore": "20200105-samsung-ballie-saram-blog.md",
-    "__manifestOrder": 9
+    "__manifestOrder": 10
   },
   {
     "title": "Spatial Understanding for Mobile and AR/VR",
@@ -96,7 +105,7 @@
     "image": "blog-images/spatial-understanding-map.png",
     "excerpt": "At Samsung Electronics, we developed a low-power spatial understanding platform spanning hardware, event-based vision, visual-inertial odometry (VIO), depth and geometry estimation, semantic mapping, and persistent world maps",
     "readMore": "20190315-samsung-spatial-understanding-blog.md",
-    "__manifestOrder": 10
+    "__manifestOrder": 11
   },
   {
     "title": "On-Device AI for Samsung Galaxy Devices",
@@ -105,6 +114,6 @@
     "image": "blog-images/samsung-bixbyvision-title.jpg",
     "excerpt": "Architected Samsung's on-device AI platform (Bixby Vision), which was launched with Galaxy S8, powering 100M+ devices worldwide.",
     "readMore": "https://semiconductor.samsung.com/technologies/processor/on-device-ai/",
-    "__manifestOrder": 11
+    "__manifestOrder": 12
   }
 ]

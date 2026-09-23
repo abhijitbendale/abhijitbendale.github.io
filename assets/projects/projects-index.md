@@ -9,6 +9,7 @@
 - 20230613-twoai-ipl2023.md
 - 20220202-twoai-fundraise.md
 - 20210215-starlabs-neon.md
+- 20210115-starlabs-shinhan.md
 - 20201029-starlabs-cj-mou.md
 - 20200105-samsung-ballie-saram.md
 - 20190315-samsung-spatial-understanding.md
